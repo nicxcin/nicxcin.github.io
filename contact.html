@@ -22,16 +22,59 @@
 				<h3>Use this to generate a URL for a 'contact us' form with preset <b>industry</b> and <b>product</b> selected.</h3>
 				
 				
-				 <div class="btn-group">
-					<label class="button"><input type="radio" name="optradio">Option 1</label>
-					<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
-					<label class="radio-inline"><input type="radio" name="optradio">Option 3</label> 
-				</div>
-				
-				
-				<form action="form_action.asp">
-					First name: <input type="text" name="fname"><br>
-					Last name: <input type="text" name="lname"><br><br>
+				<form action="">
+					<div class="form-group">
+						<label for="industry">Industry: </label>
+						<select class="form-control" id="industry">
+							<option value="0">Agriculture</option>
+							<option value="1">Archaeology</option>
+							<option value="2">Architecture</option>
+							<option value="3">Civil Engineering</option>
+							<option value="4">Coastal</option>
+							<option value="5">Construction</option>
+							<option value="6">Defence & Security</option>
+							<option value="7">Education</option>
+							<option value="8">Employee</option>
+							<option value="9">Environmental</option>
+							<option value="10">Government</option>
+							<option value="11">Manufacturing</option>
+							<option value="12">Materials Handling</option>
+							<option value="13">Media/Photo/Entertainment</option>
+							<option value="14">Mining</option>
+							<option value="15">Mining Underground</option>
+							<option value="16">Motor Racing</option>
+							<option value="17">Other</option>
+							<option value="18">Press</option>
+							<option value="19">Supplier</option>
+							<option value="20">Surveying/GIS</option>
+							<option value="21">Technology</option>
+							<option value="22">Telecoms</option>
+							<option value="23">Transport</option>
+							<option value="24">Utilities</option>
+							<option value="25">No Value - Let the user decide</option>
+						</select>
+					
+					<label for="product">Product: </label>
+					<select class="form-control" id="product">
+						<option value="0">Airborne Laser Scanning</option>
+						<option value="1">Indoor Mapping</option>
+						<option value="2">Industrial Cameras</option>
+						<option value="3">Mobile Laser Scanning</option>
+						<option value="4">Monitoring Solutions</option>
+						<option value="5">Terrestrial Laser Scanning</option>
+						<option value="6">UAV Laser Scanning</option>
+						<option value="7">No Value - Let the user decide</option>
+					</select>
+						
+					<label for="product">Type: </label>
+					<select class="form-control" id="product">
+						<option value="0">Find Out more</option>
+						<option value="1">Request a Demo</option>
+						<option value="2">Sample Data</option>
+						<option value="3">General Enquiry </option>
+					</select>	
+						
+					
 					<input type="button" onclick="myFunction()" value="Submit">
 				</form>
 
