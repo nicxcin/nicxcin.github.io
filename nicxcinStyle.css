@@ -6,3 +6,7 @@
 #deBoot b {
 	font-weight: normal!important;
 }
+
+#deBoot .fa {
+	font-family: FontAwesome;
+}
