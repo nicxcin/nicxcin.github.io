@@ -6,10 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="contactStyle.css">
 		<link rel="stylesheet" type="text/css" href="nicxcinStyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	</head>
 	
 	
-	<body>
+	<body id="deBoot">
 		<div id="colorBar" class="primary big" ></div>
 	
 	
@@ -19,6 +20,22 @@
 			<div id="contactForm"> 
 				<h1>Create a new contact form:</h1><br>
 				<h3>Use this to generate a URL for a 'contact us' form with preset <b>industry</b> and <b>product</b> selected.</h3>
+				
+				
+				 <div class="btn-group">
+					<label class="button"><input type="radio" name="optradio">Option 1</label>
+					<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+					<label class="radio-inline"><input type="radio" name="optradio">Option 3</label> 
+				</div>
+				
+				
+				<form action="form_action.asp">
+					First name: <input type="text" name="fname"><br>
+					Last name: <input type="text" name="lname"><br><br>
+					<input type="button" onclick="myFunction()" value="Submit">
+				</form>
+
+				
 			</div>
 		<div>
 	</body>

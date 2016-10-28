@@ -1,8 +1,8 @@
-* {
+#deBoot * {
 	font-family: 'Roboto Slab', serif;
 	font-weight: lighter;
 }
 
-b {
-	font-weight: normal;
+#deBoot b {
+	font-weight: normal!important;
 }
