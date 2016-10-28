@@ -9,6 +9,10 @@ function pad(str){
 
 function makeLink() {
 	
-	console.log( pad($('#industry').val()) + pad($('#product').val()) + pad($('#type').val()) )
+	var code = pad($('#industry').val()) + pad($('#product').val()) + pad($('#type').val()) 
+	var url  = "http://www.3dlasermapping.com/testcontact/?data="
+	var output = url + code
+	
+	$('.panel-body').html(output)
 }
 

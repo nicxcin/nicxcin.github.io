@@ -6,9 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="contactStyle.css">
 		<link rel="stylesheet" type="text/css" href="nicxcinStyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet"> 
-		<script src="https://use.fontawesome.com/925660fe3b.js"></script>
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		
+		<script src="https://use.fontawesome.com/925660fe3b.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="contactFormScript.js"></script> 
 	</head>
 	
 	
@@ -68,8 +70,8 @@
 							<option value="7">No Value - Let the user decide</option>
 						</select>
 							
-						<label for="product"><h4>Type:</h4> </label>
-						<select class="form-control" id="product">
+						<label for="type"><h4>Type:</h4> </label>
+						<select class="form-control" id="type">
 							<option value="0">Find Out more</option>
 							<option value="1">Request a Demo</option>
 							<option value="2">Sample Data</option>
@@ -78,11 +80,21 @@
 						
 						<br><br>
 						
-					<button class="btn btn-primary" onclick="myFunction()"> 
+					<button type="button" class="btn btn-primary" onclick="makeLink()"> 
 						<i class="fa fa-link"></i>  Generate URL
 					</button>
 				</form>
-
+				
+				<br><br><br><br>
+				
+				<div class="panel panel-primary">
+				  <div class="panel-heading">
+					<h3 class="panel-title">Your URL</h3>
+				  </div>
+				  <div class="panel-body">
+					
+				  </div>
+				</div>
 				
 			</div>
 		<div>
