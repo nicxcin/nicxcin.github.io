@@ -46,10 +46,10 @@
 } 
 
 .primary {
-	background-color: #00bcd4;
+	background-color: rgb(15,157,88);
 }
 .primaryDark {
-	background-color: #4dd0e1;
+	background-color: rgb(185,246,202);
 }
 
 #colorBar {
