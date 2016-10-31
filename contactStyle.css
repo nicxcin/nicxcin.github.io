@@ -1,3 +1,8 @@
+#deBoot {
+    background-color: #E2F3EB;
+}
+
+
 #deBoot #mainContent {
 	z-index: 1	;
 	width: 800px;
@@ -44,13 +49,6 @@
 	top: 0;
 	left: 0;
 } 
-
-.primary {
-	background-color: rgb(15,157,88);
-}
-.primaryDark {
-	background-color: rgb(185,246,202);
-}
 
 #colorBar {
 	width:100%;
