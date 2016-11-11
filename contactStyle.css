@@ -36,13 +36,13 @@
 }
 
 
-
-
 .small {
+	background-color: #E2F3EB;
 	height: 8px;
 } 
  
 .big {
+	background-color: #337AB7;
 	z-index: -1;
 	position: absolute;
 	height: 200px;
