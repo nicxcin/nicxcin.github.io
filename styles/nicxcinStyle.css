@@ -34,7 +34,7 @@
 #deBoot #mainContent {
 	z-index: 1	;
 	width: 800px;
-	height: 800px;
+	height: 900px;
 	
 	margin: auto;
 	margin-top: 100px;
@@ -44,6 +44,10 @@
 	
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	background: white;
+}
+
+#deBoot .height100 {
+	height: 100px;
 }
 
 #deBoot {
@@ -56,4 +60,12 @@
 	
 	width: 80%;
 	margin: auto;
+}
+
+#tree .question .hidden {
+	display: none;
+}
+
+#tree .question {
+	display: intial;
 }
