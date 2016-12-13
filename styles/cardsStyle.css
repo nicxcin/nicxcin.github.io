@@ -1,7 +1,39 @@
 .card {
-    height:260px;
+    margin-right: 50px;
+    float:left;
+    height:280px;
     width: 200px;
-    background-color: white;
     border-radius: 15px;
+    background-color: white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    position: relative;
 }
+
+.card * {
+    color:#f9f9f9;
+    position: absolute;
+    font-size:30px;
+}
+
+.center {
+    margin: auto;
+    position: absolute;
+    top: -10px; left: 0; bottom: 0; right: 0;
+    height: 90%;
+}
+
+.symbols {
+    display: inline-block;
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    white-space: pre;
+    line-height: 32px;
+    word-spacing: 1px;
+} 
+
+.tl {top: 10px; left: 7px;}
+.s {font-size: 48px;}
+.tl.s {top:25px;left:3px;}
