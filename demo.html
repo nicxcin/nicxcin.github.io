@@ -10,8 +10,6 @@
 		
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet"> 
 		<script src="https://use.fontawesome.com/925660fe3b.js"></script>
-		<script src="scripts/treeScript.js"></script> 
-	</head>
 	
 	<body id="deBoot">
 		<div id="colorBar" class="big" ></div>
@@ -19,87 +17,9 @@
 			<div id="colorBar" class="small" ></div>
 			<div id="content"> 
 				<h1>Want to find your product?</h1><br>
-				<div id="questionPane">
-					
-					<div class="progress">
-						<div id="questionsP" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
-					</div>
-					
-					<button id="backButton" onclick="prev();" type="button" class="btn">Back</button>
-					
-                    
-           			<div id="branch0" class="">
-						<div class="panel panel-default question ">
-							<div class="panel-heading">Pick One: </div>
-							<div class="list-group">
-								<button onclick="next([1,0]);" type="button" class="list-group-item">Moblie</button>
-								<button onclick="next([8,0]);" type="button" class="list-group-item">Monitoring</button>
-							</div>
-						</div>
-					</div>
-                    
-					<div id="branch1" class="hidden">
-						<div class="panel panel-default question ">
-							<div class="panel-heading">What is most important in a LiDAR system?</div>
-							<div class="list-group">
-								<button onclick="next([2,1]);" type="button" class="list-group-item">Capability to switch between platforms</button>
-								<button onclick="next([2,1]);" type="button" class="list-group-item">Highest possible accuracy in outdoor survey</button>
-								<button onclick="next([3,1]);" type="button" class="list-group-item">Indoor Mapping capability</button>
-							</div>
-						</div>
-					</div>
-					<div id="branch2" class="hidden">
-						<div class="panel panel-default question">
-							<div class="panel-heading">Chose preferred package?:</div>
-							
-							<div class="row">
-							  <div class="col-md-6">
-								<button onclick="next([4,2]);" type="button" class="list-group-item  height100">
-									Tablet control system
-									Backpack/car/UAV mount
-									Battery powered system
-									56deg view camera
-									Single scanner
-								</button>
-							  </div>
-							  <div class="col-md-6">
-								<button onclick="next([5,2]);" type="button" class="list-group-item  height100">
-									Control unit – removable HDD
-									Car mount
-									Lower from car Panoramic camera
-									Dual scanner
-								</button>
-							  </div>
-							</div>
-						</div>
-					</div>	
-					<div id="branch4" class="hidden">
-						<div class="panel panel-default question">
-							<div class="panel-heading">What is acceptable accuracy level for your applications?:</div>
-							<div class="list-group">
-								<button onclick="next([6,4]);" type="button" class="list-group-item">Only high relative accuracy is important (Relative: 3mm-1cm)</button>
-								<button onclick="next([6,4]);" type="button" class="list-group-item">Absolute accuracy can be at mapping (Absolute:10-20cm and Relative:3-5mm)</button>
-								<button onclick="next([7,4]);" type="button" class="list-group-item">Very high absolute and relative accuracy needed (Absolute 5-7cm and Relative 3mm)</button>
-							</div>
-						</div>
-					</div>
-					
-					<div id="branch6" class="hidden">
-						You should get a ROBIN system
-					</div>
-					
-					<div id="branch3" class="hidden">
-						You should get a ROBIN SLAM system
-					</div>
-					
-					<div id="branch5" class="hidden">
-						You should get a A StreetMapper IV system
-					</div>
-					
-					<div id="branch7" class="hidden">
-						You should get a A ROBIN Precision system
-					</div>
-					
+				<div class="progress-bar" role="progressbar"  style="width: 0%;">
+					<span class="sr-only">60% Complete</span>
+				</div>
 			</div>
 		</div>
 	</body>
