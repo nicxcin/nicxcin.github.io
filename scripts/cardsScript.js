@@ -96,10 +96,5 @@ function addCard(suit, value) {
 
 
 $(document).ready(function () {
-	addCard(0, 1);
-	addCard(2, 9);
-	addCard(1, 7);
-	addCard(3, 4);
-	addCard(0, 11);
-	
+	for x 	
 });
