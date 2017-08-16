@@ -46,11 +46,17 @@ body {
 	border: 1px solid #666;
 }
 
+.lines {
+	width: 100%;
+	height: 100%;
+}
+
 .option .mid_bar {
 	min-height: 20px;
 	color: black;
 	background-color: #F2F2F2;
 	font-size: 80%;
+	position: relative;
 }
 
 .option .top_bar {
@@ -94,6 +100,13 @@ body {
 	cursor: pointer; cursor: hand;
 }
 
+svg line {
+	pointer-events:all;
+}
+
+svg line:hover {
+	stroke: white;
+}
 
 #opt .top_bar {
 	text-align: center;
@@ -114,6 +127,19 @@ body {
 	position: absolute;
 	width: 200px;
 }
+
+.connect {
+	position: absolute;
+	width: 10px;
+	height: 10px!important;
+	border-radius: 50%;
+	left: 0; 
+  	right: 0; 
+  	margin-left: auto; 
+  	margin-right: auto; 
+	bottom:-10px;
+}
+
 
 .question_w {
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -165,6 +191,26 @@ body {
 
 .side_content {
 	padding: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.red {
+	background-color: #e50000!important;
+}
+
+.red:hover {
+	background-color: #d40000!important;
+}
+
+.greyed {
+	background-color: lightgrey!important;
+}
+
+.greyed:hover {
+	background-color: lightgrey!important;
 }
 
 .mat_button {
