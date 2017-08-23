@@ -79,6 +79,13 @@ body {
 	padding: 10px;
 }
 
+#connection_area {
+	display: none;
+	border-top: 5px solid #2196F3; 
+	border-bottom: 5px solid #2196F3; 
+	padding: 10px;
+}
+
 #opt {
 	position: absolute;
 }
@@ -105,7 +112,7 @@ svg line {
 }
 
 svg line:hover {
-	stroke: white;
+	stroke: #777777;
 }
 
 #opt .top_bar {

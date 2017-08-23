@@ -24,9 +24,6 @@ with a number and the letter q to allow it to be used as a html ID.
 
 It then 'draws' that instance (Not really drawn but DOM is placed for the first (And only time))
 
-It will also create a Listener for a mouse press checking to make sure its a legitimate press of the content needed.
-This will then trigger the sidebar to show this question and set its dragging prop to true.
-
 Finally it will increment the Unique ID.
 */
 	if(!connecting){
@@ -52,6 +49,7 @@ function create_c(i) {
 function select_option(oid) {
 	$('#question_area').css('display','none');
 	$('#option_area').css('display','inherit');
+	$('#connection_area').css('display','none');
 	
 	$('#option_area').attr('oid',oid);
 	$('#opt_title').val(Qs[oid.slice(0, 2)].options[oid].title);
@@ -83,6 +81,7 @@ function add_option(id) {
 
 function select_q(id) {
 	$('#option_area').css('display','none');
+	$('#connection_area').css('display','none');
 	$('#question_area').css('display','inherit');
 	$('#question_title').val(Qs[id].title);
 	$('#question_area').attr('qid',id);
@@ -96,6 +95,20 @@ function select_q(id) {
 		}
 	});
 }
+
+function select_connection(id) {
+	$('#connection_area').css('display','inherit');
+	$('#question_area').css('display','none');
+	$('#option_area').css('display','none');
+	$('#connection_area').attr('cid',id);
+}
+
+function delete_connection() {
+	cid = $('#connection_area').attr('cid');
+	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections[cid.slice(-1)][2][0].remove();
+	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections.splice(cid.slice(-1),1);
+}
+
 
 function updateOption(id) {
 	$('#options_btn').empty();
@@ -139,7 +152,7 @@ function update_option_left(w, parent) {
 	var count = Object.keys(parent.options).length;
 	parent.ele.find('#opt').css('left', (count*-w/2)+100 + "px");
 	parent.ele.find('#opt').css('width', count*w + "px");
-	draw_connections();
+	//draw_connections();
 }
 
 function Question(id) {
@@ -195,6 +208,9 @@ $(document).ready(function() {
 			if($(e.target).hasClass('o')) {
 				select_option($(e.target).parentsUntil('#opt')[0].id);
 			}
+			if($(e.target).hasClass('connection')) {
+				select_connection(e.target.id);
+			}
 		} else {
 			if($(e.target).hasClass('upper')) {
 				var second_id = e.target.parentNode.parentNode.id;
@@ -207,9 +223,7 @@ $(document).ready(function() {
 					finalize_c(first_id, second_id);
 					end_c();
 				}
-			} 
-			//if($(e.target).hasClass) {}
-			
+			} 			
 		}
 	});
  	
@@ -218,7 +232,7 @@ $(document).ready(function() {
 			for (o in Qs[q].options) {
 				for (connection of Qs[q].options[o].connections) {
 					var main_offset = $('#main').position().left;
-					x1 = $('#'+connection[0] + ' .connect').offset().left - main_offset + 5;
+					x1 = $('#'+connection[0] + ' .connect').offset().left - main_offset + 10;
 					y1 = $('#'+connection[0] + ' .connect').offset().top + 5;
 
 					x2 = $('#'+connection[1]).offset().left - main_offset + $('#'+connection[1]).width()/2;
@@ -238,6 +252,7 @@ $(document).ready(function() {
 		draw_connections();
 		cid = first_id+ 'c' + tmp_option.connections_n;
 		tmp_option.connections.slice(-1)[0][2].attr('id',cid);
+		tmp_option.connections.slice(-1)[0][2].attr('class', "connection");
 		$('#allLines').append(tmp_option.connections.slice(-1)[0][2]);
 		tmp_option.connections_n++;
 	}
