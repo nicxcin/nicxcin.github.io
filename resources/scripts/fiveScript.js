@@ -8,7 +8,7 @@ connecting = false;
 
 /* Default markup for the Questions and then options */
 
-var questionMarkup = $("<div class='question'></div>");
+var questionMarkup = jQuery("<div class='question'></div>");
 questionMarkup.append('<div class="question_w"><div class="mid_bar upper"></div><div id="opt"></div></div>');
 
 var optionMarkup = $("<div class='option o'></div>")
@@ -284,7 +284,7 @@ $(document).ready(function() {
 						dy = my;
 					}
 
-					q.ele.css({'top': (dy - h/2), 'left': (dx + w/2)});
+					q.ele.css({'top': (dy - h/2), 'left': (dx + w - w/4)});
 					
 					draw_connections();
 				}
