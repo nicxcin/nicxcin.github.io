@@ -110,11 +110,11 @@ function select_connection(id) {
 	$('#connection_area').css('display','inherit');
 	$('#question_area').css('display','none');
 	$('#option_area').css('display','none');
-	$('#connection_area').attr('cid',id);
+	$('#connection_area').attr('cid', id);
 }
 
-function delete_connection() {
-	cid = $('#connection_area').attr('cid');
+function delete_connection(cid) {
+	console.log(cid);
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections[cid.slice(-1)][2][0].remove();
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections.splice(cid.slice(-1),1);
 }
@@ -154,7 +154,7 @@ function Option(id, parentId, title) {
 	
 	this.remove = function() {
 		Qs[this.parentId].options[this.id].ele.remove();
-		delete Qs[this.parentId].options[this.id];
+		delete Qs[this.parentId].options[this.id]; //Investigate at some point
 	}	
 }
 
@@ -184,15 +184,27 @@ function Question(id, title) {
 }
 
 function delete_option(oid) {
+	//ensure all connections are removed
+	for(connection of Qs[oid.slice(0, 2)].options[oid].connections) {
+		connection[2][0].remove();
+	}
+
 	$('#option_area').css('display','none');
 	var w = Qs[oid.slice(0, 2)].options[oid].ele.outerWidth();
 	Qs[oid.slice(0, 2)].options[oid].remove();
 	update_option_left(w,Qs[oid.slice(0, 2)]);
+	console.log(oid);
 	draw_connections();
 }
 
 
 function delete_question(id) {
+	//ensure that for every option, the connections are removed.
+	for(o in Qs[id].options) {
+		for(connection of Qs[oid.slice(0, 2)].options[o].connections) {
+			connection[2][0].remove();
+		} 
+	}
 	$('#question_area').css('display','none');
 	Qs[id].remove();
 }
@@ -202,11 +214,11 @@ function draw_connections() {
 			for (o in Qs[q].options) {
 				for (connection of Qs[q].options[o].connections) {
 					var main_offset = $('#main').position().left;
-					x1 = $('#'+connection[0] + ' .connect').offset().left - main_offset + 10;
-					y1 = $('#'+connection[0] + ' .connect').offset().top + 5;
+					x1 = $('#'+ connection[0] + ' .connect').offset().left - main_offset + 10;
+					y1 = $('#'+ connection[0] + ' .connect').offset().top + 5;
 
-					x2 = $('#'+connection[1]).offset().left - main_offset + $('#'+connection[1]).width()/2;
-					y2 = $('#'+connection[1]).offset().top;
+					x2 = $('#'+ connection[1]).offset().left - main_offset + $('#'+ connection[1]).width()/2;
+					y2 = $('#'+ connection[1]).offset().top;
 
 					connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
 				}
@@ -260,7 +272,7 @@ $(document).ready(function() {
 		
 		tmp_option.connections.push([first_id, second_id, $(document.createElementNS('http://www.w3.org/2000/svg','line'))]);
 		draw_connections();
-		cid = first_id+ 'c' + tmp_option.connections_n;
+		cid = first_id + 'c' + tmp_option.connections_n;
 		tmp_option.connections.slice(-1)[0][2].attr('id',cid);
 		tmp_option.connections.slice(-1)[0][2].attr('class', "connection");
 		$('#allLines').append(tmp_option.connections.slice(-1)[0][2]);
