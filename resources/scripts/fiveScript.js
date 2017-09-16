@@ -41,10 +41,19 @@ Finally it will increment the Unique ID.
 
 function start_connection(i) {
 	if(!connecting) {
+
+		first_id = i.parentNode.parentNode.id;
+
+		leftOffset = $('#main').position().left;
+		x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
+		y1 = $('#'+first_id + ' .connect').offset().top + 5;
+		
+		$('#mouse').attr({'x1':x1, 'y1':y1, 'x2':x1, 'y2':y1});
+
 		$('#mouse').removeClass('hidden');
 		$('#addQ').addClass('greyed');
 		$('#cancelQ').removeClass('hidden');
-		first_id = i.parentNode.parentNode.id;
+		
 		connecting = true;
 		$('#question_area').css('display','none');
 		$('#option_area').css('display','none');
@@ -118,7 +127,6 @@ function delete_connection(cid) {
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections[cid.slice(-1)][2][0].remove();
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections.splice(cid.slice(-1),1);
 }
-
 
 function updateOption(id) {
 	$('#options_btn').empty();
@@ -197,7 +205,6 @@ function delete_option(oid) {
 	draw_connections();
 }
 
-
 function delete_question(id) {
 	//ensure that for every option, the connections are removed.
 	for(o in Qs[id].options) {
@@ -225,6 +232,20 @@ function draw_connections() {
 			}
 		}
 	}
+
+
+function finalize_connection(first_id, second_id) {
+	
+	tmp_option = Qs[first_id.slice(0,2)].options[first_id]
+	
+	tmp_option.connections.push([first_id, second_id, $(document.createElementNS('http://www.w3.org/2000/svg','line'))]);
+	draw_connections();
+	cid = first_id + 'c' + tmp_option.connections_n;
+	tmp_option.connections.slice(-1)[0][2].attr('id',cid);
+	tmp_option.connections.slice(-1)[0][2].attr('class', "connection");
+	$('#allLines').append(tmp_option.connections.slice(-1)[0][2]);
+	tmp_option.connections_n++;
+}
 
 $(document).ready(function() {	
 	$(document).mouseup(function() {
@@ -264,22 +285,12 @@ $(document).ready(function() {
 		}
 	});
  	
-	
-	
-	function finalize_connection(first_id, second_id) {
-		
-		tmp_option = Qs[first_id.slice(0,2)].options[first_id]
-		
-		tmp_option.connections.push([first_id, second_id, $(document.createElementNS('http://www.w3.org/2000/svg','line'))]);
-		draw_connections();
-		cid = first_id + 'c' + tmp_option.connections_n;
-		tmp_option.connections.slice(-1)[0][2].attr('id',cid);
-		tmp_option.connections.slice(-1)[0][2].attr('class', "connection");
-		$('#allLines').append(tmp_option.connections.slice(-1)[0][2]);
-		tmp_option.connections_n++;
-	}
 						  
 	$('#main').mousemove(function(e) {
+		leftOffset = $('#main').position().left;
+		mx = e.clientX - leftOffset;
+		my = e.clientY;
+
 		if(connecting == false) {
 			for(q in Qs) {
 				q = Qs[q];		
@@ -287,9 +298,6 @@ $(document).ready(function() {
 
 					w = q.ele.width();
 					h = q.ele.height();
-
-					mx = e.clientX - $('#main').position().left;
-					my = e.clientY;
 
 					if(mx < w/2) {
 						dx = w/2;
@@ -311,13 +319,8 @@ $(document).ready(function() {
 					draw_connections();
 				}
 			}
-		} else {
-			main_offset = $('#main').position().left;
-			
-			mx = e.clientX - main_offset;
-			my = e.clientY;
-			
-			x1 = $('#'+first_id + ' .connect').offset().left - main_offset + 5;
+		} else {	
+			x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
 			y1 = $('#'+first_id + ' .connect').offset().top + 5;
 			
 			$('#mouse').attr({'x1':x1, 'y1':y1, 'x2':mx, 'y2':my});
@@ -325,5 +328,4 @@ $(document).ready(function() {
 	});	
 	
 });
-
-
+ 
