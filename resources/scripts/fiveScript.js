@@ -27,10 +27,14 @@ It then 'draws' that instance (Not really drawn but DOM is placed for the first 
 Finally it will increment the Unique ID.
 */
 	if(!connecting){
-		id = "q"+question_n;
-		Qs[id] = new Question(id);
-		Qs[id].draw();
-		question_n++;
+
+		title = prompt("Enter Question Title");
+		if(title != null && title != "") {
+			id = "q"+question_n;
+			Qs[id] = new Question(id, title);
+			Qs[id].draw();
+			question_n++;
+		}
 	}
 }
 
@@ -73,10 +77,15 @@ function select_option(oid) {
 
 function add_option(id) {
 	oid = id + "o" + Qs[id].option_n;
-	Qs[id].options[oid] = new Option(oid, id);
-	Qs[id].options[oid].draw();
-	updateOption(id);
-	Qs[id].option_n++;
+	title = prompt("Enter Option Title");
+
+	//title was not empty or cancel was not pressed
+	if(title != null && title != "") {
+		Qs[id].options[oid] = new Option(oid, id, title);
+		Qs[id].options[oid].draw();
+		updateOption(id);
+		Qs[id].option_n++;
+	}
 }
 
 function select_q(id) {
@@ -124,30 +133,27 @@ function end_c() {
 	connecting = false;
 }
 
-function Option(id, parentId) {
-	title = prompt("Enter Question title");
-	if(title != null) {
-		this.parentId = parentId;
-		this.id = id;
-		this.title = title;
+function Option(id, parentId, title) {
+	this.parentId = parentId;
+	this.id = id;
+	this.title = title;
 
-		this.text = "";
-		this.ele = optionMarkup.clone();
-		this.ele.attr('id',this.id)
-		this.ele.find('.top_bar').text(this.title);
-		this.connections = [];
-		this.connections_n = 0;
-		
-		this.draw = function() {
-			Qs[parentId].ele.find('#opt').append(this.ele);
-			update_option_left(this.ele.outerWidth(), Qs[parentId]);
-			this.ele.attr('id',this.id);
-		};
-		
-		this.remove = function() {
-			Qs[this.parentId].options[this.id].ele.remove();
-			delete Qs[this.parentId].options[this.id];
-		}
+	this.text = "";
+	this.ele = optionMarkup.clone();
+	this.ele.attr('id',this.id)
+	this.ele.find('.top_bar').text(this.title);
+	this.connections = [];
+	this.connections_n = 0;
+	
+	this.draw = function() {
+		Qs[parentId].ele.find('#opt').append(this.ele);
+		update_option_left(this.ele.outerWidth(), Qs[parentId]);
+		this.ele.attr('id',this.id);
+	};
+	
+	this.remove = function() {
+		Qs[this.parentId].options[this.id].ele.remove();
+		delete Qs[this.parentId].options[this.id];
 	}	
 }
 
@@ -158,10 +164,11 @@ function update_option_left(w, parent) {
 	//draw_connections();
 }
 
-function Question(id) {
+function Question(id, title) {
+	
 	this.id = id;
 	this.dragging = false;
-	this.title = prompt("Enter Question text");
+	this.title = title;
 	this.ele = questionMarkup.clone();
 	this.ele.attr('id',this.id);
 	this.ele.find('.mid_bar').text(this.title);
@@ -173,7 +180,7 @@ function Question(id) {
 	this.remove = function() {
 		this.ele.remove();
 		delete Qs[this.id];
-	}
+	}	
 }
 
 
