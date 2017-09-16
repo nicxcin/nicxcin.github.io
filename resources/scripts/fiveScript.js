@@ -125,27 +125,30 @@ function end_c() {
 }
 
 function Option(id, parentId) {
-	this.parentId = parentId;
-	this.id = id;
-	this.title = prompt("Enter Question title");
-	this.text = "";
-	this.ele = optionMarkup.clone();
-	this.ele.attr('id',this.id)
-	this.ele.find('.top_bar').text(this.title);
-	this.connections = [];
-	this.connections_n = 0;
-	
-	this.draw = function() {
-		Qs[parentId].ele.find('#opt').append(this.ele);
-		update_option_left(this.ele.outerWidth(), Qs[parentId]);
-		this.ele.attr('id',this.id);
-	};
-	
-	this.remove = function() {
-		Qs[this.parentId].options[this.id].ele.remove();
-		delete Qs[this.parentId].options[this.id];
-	}
-	
+	title = prompt("Enter Question title");
+	if(title != null) {
+		this.parentId = parentId;
+		this.id = id;
+		this.title = title;
+
+		this.text = "";
+		this.ele = optionMarkup.clone();
+		this.ele.attr('id',this.id)
+		this.ele.find('.top_bar').text(this.title);
+		this.connections = [];
+		this.connections_n = 0;
+		
+		this.draw = function() {
+			Qs[parentId].ele.find('#opt').append(this.ele);
+			update_option_left(this.ele.outerWidth(), Qs[parentId]);
+			this.ele.attr('id',this.id);
+		};
+		
+		this.remove = function() {
+			Qs[this.parentId].options[this.id].ele.remove();
+			delete Qs[this.parentId].options[this.id];
+		}
+	}	
 }
 
 function update_option_left(w, parent) {

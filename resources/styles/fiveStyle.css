@@ -112,7 +112,7 @@ svg line {
 }
 
 svg line:hover {
-	stroke: #777777;
+	stroke: #0000ff;
 }
 
 #opt .top_bar {
