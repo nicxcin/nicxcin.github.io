@@ -12,7 +12,7 @@ var questionMarkup = jQuery("<div class='question'></div>");
 questionMarkup.append('<div class="question_w"><div class="mid_bar upper"></div><div id="opt"></div></div>');
 
 var optionMarkup = $("<div class='option o'></div>")
-optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"><button onclick="start_connection(this)" class="connect mat_button"></button></div>');
+optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"></div><button onclick="start_connection(this)" class="connect mat_button"></button>');
 
 
 function create_question() {	
@@ -42,7 +42,7 @@ Finally it will increment the Unique ID.
 function start_connection(i) {
 	if(!connecting) {
 
-		first_id = i.parentNode.parentNode.id;
+		first_id = i.parentNode.id;
 
 		leftOffset = $('#main').position().left;
 		x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
