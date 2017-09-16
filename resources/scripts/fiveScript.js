@@ -12,11 +12,11 @@ var questionMarkup = jQuery("<div class='question'></div>");
 questionMarkup.append('<div class="question_w"><div class="mid_bar upper"></div><div id="opt"></div></div>');
 
 var optionMarkup = $("<div class='option o'></div>")
-optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"><button onclick="create_c(this)" class="connect mat_button"></button></div>');
+optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"><button onclick="start_connection(this)" class="connect mat_button"></button></div>');
 
 
 function create_question() {	
-	/* First Function that gets called to create a new Question 
+/* First Function that gets called to create a new Question 
 
 Purpose: 
 Generate a new instance of the Question object with a Unique ID generated 
@@ -38,7 +38,8 @@ Finally it will increment the Unique ID.
 	}
 }
 
-function create_c(i) {
+
+function start_connection(i) {
 	if(!connecting) {
 		$('#mouse').removeClass('hidden');
 		$('#addQ').addClass('greyed');
@@ -88,7 +89,7 @@ function add_option(id) {
 	}
 }
 
-function select_q(id) {
+function select_question(id) {
 	$('#option_area').css('display','none');
 	$('#connection_area').css('display','none');
 	$('#question_area').css('display','inherit');
@@ -126,7 +127,7 @@ function updateOption(id) {
 	}
 } 	
 
-function end_c() {
+function end_connection() {
 	$('#addQ').removeClass('greyed');
 	$('#cancelQ').addClass('hidden');
 	$('#mouse').addClass('hidden');
@@ -211,7 +212,7 @@ $(document).ready(function() {
 		if(!connecting) {
 			if($(e.target).hasClass('upper')) {
 				var id = e.target.parentNode.parentNode.id;
-				select_q(id);	
+				select_question(id);	
 				Qs[id].dragging = true;
 			}
 
@@ -227,11 +228,11 @@ $(document).ready(function() {
 
 				if(first_id.slice(0,2) == second_id) {
 					console.log("You cannot connect to the same Question.");
-					end_c();
+					end_connection();
 				} else {
 					console.log("Connection made between: " + first_id + " and " + second_id);
 					finalize_c(first_id, second_id);
-					end_c();
+					end_connection();
 				}
 			} 			
 		}

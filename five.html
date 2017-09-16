@@ -21,7 +21,7 @@
 			</div>
 			<div class="side_content">
 				<button onclick="create_question()" class="mat_button" id="addQ">Add Question</button>
-				<button onclick="end_c()" class="mat_button red hidden" id="cancelQ">Cancel Connection</button>
+				<button onclick="end_connection()" class="mat_button red hidden" id="cancelQ">Cancel Connection</button>
 			</div>
 			<div id="question_area">
 				<h3>Question Title:</h3>
@@ -37,7 +37,7 @@
 				<textarea id="opt_title" rows="2"></textarea>
 				<p>Enter text for this option:</p>
 				<textarea id="opt_txt" rows="4"></textarea>
-				<button class="mat_button" onclick="select_q(($('#option_area').attr('oid')).slice(0,2))">Back</button>
+				<button class="mat_button" onclick="select_question(($('#option_area').attr('oid')).slice(0,2))">Back</button>
 				<button class="mat_button" onclick="delete_option(($('#option_area').attr('oid')))"> Delete Option</button>
 			</div>
 			<div id="connection_area">
