@@ -38,7 +38,6 @@ Finally it will increment the Unique ID.
 	}
 }
 
-
 function start_connection(i) {
 	if(!connecting) {
 
