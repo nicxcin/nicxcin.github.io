@@ -162,11 +162,10 @@ function update_option_left(w, parent) {
 	var count = Object.keys(parent.options).length;
 	parent.ele.find('#opt').css('left', (count*-w/2)+100 + "px");
 	parent.ele.find('#opt').css('width', count*w + "px");
-	//draw_connections();
+	draw_connections();
 }
 
-function Question(id, title) {
-	
+function Question(id, title) {	
 	this.id = id;
 	this.dragging = false;
 	this.title = title;
@@ -184,8 +183,6 @@ function Question(id, title) {
 	}	
 }
 
-
-
 function delete_option(oid) {
 	$('#option_area').css('display','none');
 	var w = Qs[oid.slice(0, 2)].options[oid].ele.outerWidth();
@@ -194,11 +191,28 @@ function delete_option(oid) {
 	draw_connections();
 }
 
+
 function delete_question(id) {
 	$('#question_area').css('display','none');
 	Qs[id].remove();
 }
 
+function draw_connections() {
+		for (q in Qs) {
+			for (o in Qs[q].options) {
+				for (connection of Qs[q].options[o].connections) {
+					var main_offset = $('#main').position().left;
+					x1 = $('#'+connection[0] + ' .connect').offset().left - main_offset + 10;
+					y1 = $('#'+connection[0] + ' .connect').offset().top + 5;
+
+					x2 = $('#'+connection[1]).offset().left - main_offset + $('#'+connection[1]).width()/2;
+					y2 = $('#'+connection[1]).offset().top;
+
+					connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
+				}
+			}
+		}
+	}
 
 $(document).ready(function() {	
 	$(document).mouseup(function() {
@@ -231,31 +245,16 @@ $(document).ready(function() {
 					end_connection();
 				} else {
 					console.log("Connection made between: " + first_id + " and " + second_id);
-					finalize_c(first_id, second_id);
+					finalize_connection(first_id, second_id);
 					end_connection();
 				}
 			} 			
 		}
 	});
  	
-	function draw_connections() {
-		for (q in Qs) {
-			for (o in Qs[q].options) {
-				for (connection of Qs[q].options[o].connections) {
-					var main_offset = $('#main').position().left;
-					x1 = $('#'+connection[0] + ' .connect').offset().left - main_offset + 10;
-					y1 = $('#'+connection[0] + ' .connect').offset().top + 5;
-
-					x2 = $('#'+connection[1]).offset().left - main_offset + $('#'+connection[1]).width()/2;
-					y2 = $('#'+connection[1]).offset().top;
-
-					connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
-				}
-			}
-		}
-	}
 	
-	function finalize_c(first_id, second_id) {
+	
+	function finalize_connection(first_id, second_id) {
 		
 		tmp_option = Qs[first_id.slice(0,2)].options[first_id]
 		
@@ -314,3 +313,5 @@ $(document).ready(function() {
 	});	
 	
 });
+
+
