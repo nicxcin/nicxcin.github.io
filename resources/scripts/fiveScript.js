@@ -38,10 +38,18 @@ Finally it will increment the Unique ID.
 	}
 }
 
+function collapse_side() {
+	console.log("Test");
+}
+
+function load_tree() {
+
+}
+
 function start_connection(i) {
 	if(!connecting) {
 
-		first_id = i.parentNode.id;
+		first_id = i.parentNode.parentNode.id;
 
 		leftOffset = $('#main').position().left;
 		x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
@@ -122,7 +130,10 @@ function select_connection(id) {
 }
 
 function delete_connection(cid) {
-	console.log(cid);
+	$('#connection_area').css('display','none');
+	$('#question_area').css('display','inherit');
+	$('#connection_area').attr('cid', id);
+
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections[cid.slice(-1)][2][0].remove();
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections.splice(cid.slice(-1),1);
 }
