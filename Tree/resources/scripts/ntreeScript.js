@@ -21,7 +21,7 @@ function getBackNode(n) {
 	
 function change(n) {
 	if(n>100) {
-		link  = 'http://charlie3dlm.staging.wpengine.com' + links[n-101]
+		link  = 'http://www.3dlasermapping.com' + links[n-101]
 		top.window.location.replace(link);
 	} else {
 		if(n>=2) {jQuery('.backButton').show();}
