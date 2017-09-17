@@ -12,7 +12,7 @@ var questionMarkup = jQuery("<div class='question'></div>");
 questionMarkup.append('<div class="question_w"><div class="mid_bar upper"></div><div id="opt"></div></div>');
 
 var optionMarkup = $("<div class='option o'></div>")
-optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"></div><button onclick="start_connection(this)" class="connect mat_button"></button>');
+optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"><span id="txt_pane"></span><button onclick="start_connection(this)" class="connect mat_button"></button></div>');
 
 
 function create_question() {	
@@ -79,7 +79,7 @@ function select_option(oid) {
 	$('#opt_txt').on('input propertychange paste', function() {
 		if($('#option_area').attr('oid') == oid) {
 			Qs[oid.slice(0, 2)].options[oid].text = $('#opt_txt').val();
-			Qs[oid.slice(0, 2)].options[oid].ele.find('.mid_bar').text($('#opt_txt').val());
+			Qs[oid.slice(0, 2)].options[oid].ele.find('#txt_pane').text($('#opt_txt').val());
 		}
 	});
 }
