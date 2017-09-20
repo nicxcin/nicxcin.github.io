@@ -38,12 +38,20 @@ Finally it will increment the Unique ID.
 	}
 }
 
+
+function genQuestion(title) {
+	id = "q"+question_n;
+	Qs[id] = new Question(id, title);
+	Qs[id].draw();
+	question_n++;
+}
+
 function collapse_side() {
 	console.log("Test");
 }
 
 function load_tree() {
-
+	genQuestion("Test");
 }
 
 function start_connection(i) {
@@ -199,6 +207,10 @@ function Question(id, title) {
 		this.ele.remove();
 		delete Qs[this.id];
 	}	
+
+	this.addOption = function() {
+
+	}
 }
 
 function delete_option(oid) {
