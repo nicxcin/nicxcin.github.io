@@ -55,6 +55,16 @@ function Question(id) {
 		delete Qs[this.id];
 	}	
 }
+jQuery(document).ready(function() {	
+	jQuery('#link_href').on('input propertychange paste', function() {
+		jQuery('#link_result').text('<a href="' + jQuery('#link_href').val() +'">' + jQuery('#link_text').val() + '</a>');
+	});
+
+	jQuery('#link_text').on('input propertychange paste', function() {
+		jQuery('#link_result').text('<a href="' + jQuery('#link_href').val() +'">' + jQuery('#link_text').val() + '</a>');
+	});
+});
+
 
 var out_text ='';
 

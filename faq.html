@@ -17,17 +17,32 @@
 
 		<div id="content" class="box-shadow">
 			<div id="colorBar" class="small" ></div>
+
+			<div id="linkBox" class="box-shadow">
+				<div id="colorBar" class="small" ></div>
+				<div id="c">
+					Link to:<br>
+					<textarea id="link_href" rows="1"></textarea><br>
+					Link Text:<br>
+					<textarea id="link_text" rows="1"></textarea><br>
+					Output<br>
+					<textarea id="link_result" rows="1"></textarea><br>
+				</div>
+			</div>
+
 			<h1>FAQ Generator</h1>
 			<br>
 			<h3>Use this to generate FAQ tabs for cornerstone:</h3>
 			<br>
 			<div id="questions">
+				<br>
+				<br>
 				<button onclick="add_question()">Add Question</button>
 				<button onclick="create()">Generate Html</button>
+				<button onclick="jQuery('#linkBox').toggle()">Insert Link</button>
 				<br>
 				<br>
-				<textarea id="out_text"></textarea><textarea id="css_text">#FAQ input {display:none;}.nabtop  {color: #666666!important;padding: 8px!important;background: #EFEFEF!important;cursor: pointer; cursor: hand;transition: 0.3s;}.nabtop span {margin-right: 8px;}.nabouter  {margin-bottom: 15px!important;}.nabtent  {margin-left: 19px;background: WHITE!important;height: 0;overflow: hidden;opacity: 0;transition: 0.3s;transition: ease-in;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);width: calc(100% - 19px)!important;}#FAQ input[type=radio]:checked + .nabouter > .nabtent {height:inherit;padding:8px;opacity:1;}#FAQ input[type=radio]:checked + .nabouter .nabtop {background:#72BA26!important;color:WHITE!important;}
-</textarea>
+				<textarea id="out_text"></textarea><textarea id="css_text">#FAQ input {display:none;}.nabtop  {color: #666666!important;padding: 8px!important;background: #EFEFEF!important;cursor: pointer; cursor: hand;transition: 0.3s;}.nabtop span {margin-right: 8px;}.nabouter  {margin-bottom: 15px!important;}.nabtent  {margin-left: 19px;background: WHITE!important;height: 0;overflow: hidden;opacity: 0;transition: 0.3s;transition: ease-in;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);width: calc(100% - 19px)!important;}#FAQ input[type=radio]:checked + .nabouter > .nabtent {height:inherit;padding:8px;opacity:1;}#FAQ input[type=radio]:checked + .nabouter .nabtop {background:#72BA26!important;color:WHITE!important;}</textarea>
 				<br>
 				<br>
 				<div id="QuestionArea">
