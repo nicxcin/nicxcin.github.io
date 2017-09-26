@@ -14,7 +14,9 @@
 	<body>
 		<div id="side">
 			<div class="top_bar">
-				<button onclick="collapse_side()"><i class="fa fa-caret-left"></i></button>
+				<button><i class="fa fa-caret-left"></i></button>
+				<button onclick="save_tree()"><i class="fa fa-floppy-o"></i></button>
+				<button onclick="load_tree()"><i class="fa fa-folder-open-o"></i></button>
 			</div>
 			<div class="mid_side_bar">
 				<h3>Decision Tree Builder</h3>	
@@ -26,11 +28,11 @@
 			<div id="question_area">
 				<h3>Question Title:</h3>
 				<textarea rows="1" id="question_title"></textarea>
-				<button class="mat_button" onclick="delete_question($('#question_area').attr('qid'))">Delete Question</button>
+				<button class="mat_button" id="deleteQuestionButton">Delete Question</button>
 				<h3>Options:</h3>
 				<ul id="options_btn">
 				</ul>
-				<button class="mat_button" onclick="add_option($('#question_area').attr('qid'))">Add Option</button>
+				<button class="mat_button" id="addOptionButton">Add Option</button>
 			</div>
 			<div id="option_area">
 				<h3>Option Title: </h3>
@@ -38,7 +40,7 @@
 				<p>Enter text for this option:</p>
 				<textarea id="opt_txt" rows="4"></textarea>
 				<button class="mat_button" onclick="select_question(($('#option_area').attr('oid')).slice(0,2))">Back</button>
-				<button class="mat_button" onclick="delete_option(($('#option_area').attr('oid')))"> Delete Option</button>
+				<button class="mat_button" id="deleteOptionButton"> Delete Option</button>
 			</div>
 			<div id="connection_area">
 				<h3>Connection:</h3>

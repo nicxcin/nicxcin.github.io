@@ -16,44 +16,108 @@ optionMarkup.append('<div class="top_bar o"></div><div class="mid_bar o"><span i
 
 
 function create_question() {	
-/* First Function that gets called to create a new Question 
-
-Purpose: 
-Generate a new instance of the Question object with a Unique ID generated 
-with a number and the letter q to allow it to be used as a html ID.
-
-It then 'draws' that instance (Not really drawn but DOM is placed for the first (And only time))
-
-Finally it will increment the Unique ID.
-*/
 	if(!connecting){
-
 		title = prompt("Enter Question Title");
 		if(title != null && title != "") {
-			id = "q"+question_n;
-			Qs[id] = new Question(id, title);
-			Qs[id].draw();
-			question_n++;
+			new Question(title);
 		}
 	}
 }
 
+function Option(pId) {
+	this.pId = pId;
+	this.id = pId + "o" + Qs[pId].option_n;
+	Qs[pId].option_n++;
+	Qs[pId].options[this.id] = this;
 
-function genQuestion(title) {
-	id = "q"+question_n;
-	Qs[id] = new Question(id, title);
-	Qs[id].draw();
+	this.title = "";
+	this.text = "";
+	this.ele = optionMarkup.clone();
+	this.ele.attr('id',this.id)
+	this.ele.find('.top_bar').text(this.title);
+	this.connections = [];
+	this.connections_n = 0;
+	
+	Qs[pId].ele.find('#opt').append(this.ele);
+	update_option_left(this.ele.outerWidth(), Qs[pId]);
+	this.ele.attr('id',this.id);	
+
+	this.addConnection = function(qid) {
+		cid = this.id + "c" + this.connections_n;
+		this.connections_n++;
+		line = $(document.createElementNS('http://www.w3.org/2000/svg','line'));
+		line.attr('id',cid);
+		line.attr('class', "connection");
+		this.connections.push([this.id, qid, line]);
+		$('#allLines').append(line);
+		draw_connections();
+	}
+
+	this.delete = function() {
+		for(connection of this.connections) {
+			connection[2][0].remove();
+		}
+
+		$('#option_area').css('display','none');
+		var w = this.ele.outerWidth();
+		update_option_left(w, Qs[pId]);
+		Qs[this.pId].options[this.id].ele.remove();
+		delete Qs[this.pId].options[this.id]; //Investigate at some point
+		draw_connections();
+	}
+}
+
+
+function Question(title) {	
+	this.id = "q" + question_n;
 	question_n++;
+	this.dragging = false;
+	this.title = title;
+	this.ele = questionMarkup.clone();
+	this.ele.attr('id',this.id);
+	this.ele.find('.mid_bar').text(this.title);
+	this.option_n = 0;
+	this.options = {};
+	
+	Qs[this.id] = this;
+	$('#main').prepend(this.ele);
+
+	this.delete = function() {
+		for(o in this.options) {
+			for(connection of this.options[o].connections) {
+				connection[2][0].remove();
+			} 
+		}
+		$('#question_area').css('display','none');
+		this.ele.remove();
+		delete Qs[this.id];
+	}
+
+	this.addOption = function() {
+		new Option(this.id);
+		updateOption(this.id);
+	}
 }
 
-function collapse_side() {
-	console.log("Test");
-}
-
+//saving loading
 function load_tree() {
-	genQuestion("Test");
+	a = new Question("Test");
+	a.addOption();
 }
 
+function save_tree() {
+	console.log("Saving Tree");
+
+	console.log(Qs);
+
+	//for (q in Qs) {
+	//	console.log(Qs[q])
+	//}
+	console.log("Done");
+}
+
+
+//connections
 function start_connection(i) {
 	if(!connecting) {
 
@@ -75,6 +139,14 @@ function start_connection(i) {
 	}
 }
 
+function end_connection() {
+	$('#addQ').removeClass('greyed');
+	$('#cancelQ').addClass('hidden');
+	$('#mouse').addClass('hidden');
+	connecting = false;
+}
+
+//side bar selects
 function select_option(oid) {
 	$('#question_area').css('display','none');
 	$('#option_area').css('display','inherit');
@@ -98,19 +170,6 @@ function select_option(oid) {
 			Qs[oid.slice(0, 2)].options[oid].ele.find('#txt_pane').text($('#opt_txt').val());
 		}
 	});
-}
-
-function add_option(id) {
-	oid = id + "o" + Qs[id].option_n;
-	title = prompt("Enter Option Title");
-
-	//title was not empty or cancel was not pressed
-	if(title != null && title != "") {
-		Qs[id].options[oid] = new Option(oid, id, title);
-		Qs[id].options[oid].draw();
-		updateOption(id);
-		Qs[id].option_n++;
-	}
 }
 
 function select_question(id) {
@@ -137,6 +196,14 @@ function select_connection(id) {
 	$('#connection_area').attr('cid', id);
 }
 
+//update options in sidebar
+function updateOption(id) {
+	$('#options_btn').empty();
+	for(o in Qs[id].options) {
+		$('#options_btn').append('<li onclick="select_option('+"'"+ o+"'" +')">'+ Qs[id].options[o].title +"</li>");
+	}
+} 
+
 function delete_connection(cid) {
 	$('#connection_area').css('display','none');
 	$('#question_area').css('display','inherit');
@@ -146,44 +213,6 @@ function delete_connection(cid) {
 	Qs[cid.slice(0,2)].options[cid.slice(0,4)].connections.splice(cid.slice(-1),1);
 }
 
-function updateOption(id) {
-	$('#options_btn').empty();
-	for(o in Qs[id].options) {
-		$('#options_btn').append('<li onclick="select_option('+"'"+ o+"'" +')">'+ Qs[id].options[o].title +"</li>");
-	}
-} 	
-
-function end_connection() {
-	$('#addQ').removeClass('greyed');
-	$('#cancelQ').addClass('hidden');
-	$('#mouse').addClass('hidden');
-	connecting = false;
-}
-
-function Option(id, parentId, title) {
-	this.parentId = parentId;
-	this.id = id;
-	this.title = title;
-
-	this.text = "";
-	this.ele = optionMarkup.clone();
-	this.ele.attr('id',this.id)
-	this.ele.find('.top_bar').text(this.title);
-	this.connections = [];
-	this.connections_n = 0;
-	
-	this.draw = function() {
-		Qs[parentId].ele.find('#opt').append(this.ele);
-		update_option_left(this.ele.outerWidth(), Qs[parentId]);
-		this.ele.attr('id',this.id);
-	};
-	
-	this.remove = function() {
-		Qs[this.parentId].options[this.id].ele.remove();
-		delete Qs[this.parentId].options[this.id]; //Investigate at some point
-	}	
-}
-
 function update_option_left(w, parent) {
 	var count = Object.keys(parent.options).length;
 	parent.ele.find('#opt').css('left', (count*-w/2)+100 + "px");
@@ -191,82 +220,21 @@ function update_option_left(w, parent) {
 	draw_connections();
 }
 
-function Question(id, title) {	
-	this.id = id;
-	this.dragging = false;
-	this.title = title;
-	this.ele = questionMarkup.clone();
-	this.ele.attr('id',this.id);
-	this.ele.find('.mid_bar').text(this.title);
-	this.option_n = 0;
-	this.options = {};
-	
-	this.draw = function() {$('#main').prepend(this.ele);};
-	
-	this.remove = function() {
-		this.ele.remove();
-		delete Qs[this.id];
-	}	
-
-	this.addOption = function() {
-
-	}
-}
-
-function delete_option(oid) {
-	//ensure all connections are removed
-	for(connection of Qs[oid.slice(0, 2)].options[oid].connections) {
-		connection[2][0].remove();
-	}
-
-	$('#option_area').css('display','none');
-	var w = Qs[oid.slice(0, 2)].options[oid].ele.outerWidth();
-	Qs[oid.slice(0, 2)].options[oid].remove();
-	update_option_left(w,Qs[oid.slice(0, 2)]);
-	console.log(oid);
-	draw_connections();
-}
-
-function delete_question(id) {
-	//ensure that for every option, the connections are removed.
-	for(o in Qs[id].options) {
-		for(connection of Qs[oid.slice(0, 2)].options[o].connections) {
-			connection[2][0].remove();
-		} 
-	}
-	$('#question_area').css('display','none');
-	Qs[id].remove();
-}
-
 function draw_connections() {
-		for (q in Qs) {
-			for (o in Qs[q].options) {
-				for (connection of Qs[q].options[o].connections) {
-					var main_offset = $('#main').position().left;
-					x1 = $('#'+ connection[0] + ' .connect').offset().left - main_offset + 10;
-					y1 = $('#'+ connection[0] + ' .connect').offset().top + 5;
+	for (q in Qs) {
+		for (o in Qs[q].options) {
+			for (connection of Qs[q].options[o].connections) {
+				var main_offset = $('#main').position().left;
+				x1 = $('#'+ connection[0] + ' .connect').offset().left - main_offset + 10;
+				y1 = $('#'+ connection[0] + ' .connect').offset().top + 5;
 
-					x2 = $('#'+ connection[1]).offset().left - main_offset + $('#'+ connection[1]).width()/2;
-					y2 = $('#'+ connection[1]).offset().top;
+				x2 = $('#'+ connection[1]).offset().left - main_offset + $('#'+ connection[1]).width()/2;
+				y2 = $('#'+ connection[1]).offset().top;
 
-					connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
-				}
+				connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
 			}
 		}
 	}
-
-
-function finalize_connection(first_id, second_id) {
-	
-	tmp_option = Qs[first_id.slice(0,2)].options[first_id]
-	
-	tmp_option.connections.push([first_id, second_id, $(document.createElementNS('http://www.w3.org/2000/svg','line'))]);
-	draw_connections();
-	cid = first_id + 'c' + tmp_option.connections_n;
-	tmp_option.connections.slice(-1)[0][2].attr('id',cid);
-	tmp_option.connections.slice(-1)[0][2].attr('class', "connection");
-	$('#allLines').append(tmp_option.connections.slice(-1)[0][2]);
-	tmp_option.connections_n++;
 }
 
 $(document).ready(function() {	
@@ -276,7 +244,19 @@ $(document).ready(function() {
 		}
 	});
 	
-	
+	$('#addOptionButton').on('click', function(){
+		Qs[$('#question_area').attr('qid')].addOption();
+	});
+
+	$('#deleteQuestionButton').on('click', function(){
+		Qs[$('#question_area').attr('qid')].delete();
+	});
+
+	$('#deleteOptionButton').on('click', function(){
+		Qs[$('#option_area').attr('oid').slice(0,2)].options[$('#option_area').attr('oid')].delete();
+	});
+
+
 	$(document).mousedown(function(e) {
 		if(!connecting) {
 			if($(e.target).hasClass('upper')) {
@@ -300,7 +280,7 @@ $(document).ready(function() {
 					end_connection();
 				} else {
 					console.log("Connection made between: " + first_id + " and " + second_id);
-					finalize_connection(first_id, second_id);
+					Qs[first_id.slice(0,2)].options[first_id].addConnection(second_id);
 					end_connection();
 				}
 			} 			
@@ -347,7 +327,6 @@ $(document).ready(function() {
 			
 			$('#mouse').attr({'x1':x1, 'y1':y1, 'x2':mx, 'y2':my});
 		}
-	});	
-	
+	});		
 });
  
