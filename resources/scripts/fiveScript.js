@@ -42,6 +42,17 @@ function Option(pId) {
 	update_option_left(this.ele.outerWidth(), Qs[pId]);
 	this.ele.attr('id',this.id);	
 
+
+	this.setTitle = function(title) {
+		this.title = title;
+		this.ele.find('.top_bar').text(this.title);
+	}
+
+	this.setText = function(text) {
+		this.text = text;
+		this.ele.find('#txt_pane').text(this.text);
+	}
+
 	this.addConnection = function(qid) {
 		cid = this.id + "c" + this.connections_n;
 		this.connections_n++;
@@ -78,9 +89,17 @@ function Question(title) {
 	this.ele.find('.mid_bar').text(this.title);
 	this.option_n = 0;
 	this.options = {};
+	this.top = 0;
+	this.left = 0;
 	
 	Qs[this.id] = this;
 	$('#main').prepend(this.ele);
+
+	this.updatePos = function(x,y) {
+		w = this.ele.width();
+		h = this.ele.height();
+		this.ele.css({'top': (y - h/2), 'left': (x + w - w/4)});
+	}
 
 	this.delete = function() {
 		for(o in this.options) {
@@ -101,8 +120,30 @@ function Question(title) {
 
 //saving loading
 function load_tree() {
-	a = new Question("Test");
-	a.addOption();
+	a = new Question("Let's Help You Find the Right Product");
+	a.updatePos(700,100);
+
+	aoa = new Option(a.id);
+	aoa.setTitle("Capture");
+	aoa.setText("Capture data to create 3d maps or to perform analysis.");
+
+	aob = new Option(a.id);
+	aob.setTitle("Track Change");
+	aob.setText("Track change of slopes/ volumes/ rockfaces and make informed decisions.");
+
+
+	b = new Question("Let's Help You Find the Right Product");
+	b.updatePos(500,300);
+
+	boa = new Option(b.id);
+	boa.setTitle("I know what I need");
+	boa.setText("If you know the specifications of the product you need.");
+
+	bob = new Option(b.id);
+	bob.setTitle("I know what I want to map");
+	bob.setText("If you know what the system will need to do.");
+
+	aoa.addConnection(b.id);
 }
 
 function save_tree() {
@@ -316,6 +357,8 @@ $(document).ready(function() {
 						dy = my;
 					}
 
+					q.top = dy;
+					q.left = dx;
 					q.ele.css({'top': (dy - h/2), 'left': (dx + w - w/4)});
 					
 					draw_connections();
