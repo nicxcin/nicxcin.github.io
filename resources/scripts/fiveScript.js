@@ -98,6 +98,8 @@ function Question(title) {
 	this.updatePos = function(x,y) {
 		w = this.ele.width();
 		h = this.ele.height();
+		this.top = y;
+		this.left = x;
 		this.ele.css({'top': (y - h/2), 'left': (x + w - w/4)});
 	}
 
@@ -120,41 +122,31 @@ function Question(title) {
 
 //saving loading
 function load_tree() {
-	a = new Question("Let's Help You Find the Right Product");
-	a.updatePos(700,100);
+	Ps = JSON.parse($('#outputA').val());
 
-	aoa = new Option(a.id);
-	aoa.setTitle("Capture");
-	aoa.setText("Capture data to create 3d maps or to perform analysis.");
+	questions = [];
 
-	aob = new Option(a.id);
-	aob.setTitle("Track Change");
-	aob.setText("Track change of slopes/ volumes/ rockfaces and make informed decisions.");
+	for(question in Ps) {
+		tmp = new Question(Ps[question]['title']);
+		tmp.updatePos(Ps[question]['left'],Ps[question]['top']);
+		for(option in Ps[question].options) {
+			tmpo = new Option(tmp.id);
+			tmpo.setTitle(Ps[question].options[option].title);
+			tmpo.setText(Ps[question].options[option].text);
 
+			for(connection in Ps[question].options[option].connections) {
+				//tmpo.addConnection(Ps[question].options[option].connections[connection][1]);
 
-	b = new Question("Let's Help You Find the Right Product");
-	b.updatePos(500,300);
+			}
+		}
+	}
 
-	boa = new Option(b.id);
-	boa.setTitle("I know what I need");
-	boa.setText("If you know the specifications of the product you need.");
-
-	bob = new Option(b.id);
-	bob.setTitle("I know what I want to map");
-	bob.setText("If you know what the system will need to do.");
-
-	aoa.addConnection(b.id);
+	// aoa.addConnection(b.id);
 }
 
 function save_tree() {
-	console.log("Saving Tree");
-
-	console.log(Qs);
-
-	//for (q in Qs) {
-	//	console.log(Qs[q])
-	//}
-	console.log("Done");
+   	$('#outputA').show();
+   	$('#outputA').val(JSON.stringify(Qs));
 }
 
 
