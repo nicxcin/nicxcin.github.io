@@ -141,6 +141,14 @@ function load_tree() {
 		}
 	}
 
+	for(question in Qs) {
+		for(option in Qs[question].options) {
+			for(connection in Ps[question].options[option].connections) {
+				Qs[question].options[option].addConnection(Ps[question].options[option].connections[connection][1]); 
+			}
+		}
+	}
+
 	// aoa.addConnection(b.id);
 }
 
