@@ -262,14 +262,15 @@ function update_option_left(w, parent) {
 }
 
 function draw_connections() {
+	var main_offset = $('#main').position().left;
 	for (q in Qs) {
 		for (o in Qs[q].options) {
 			for (connection of Qs[q].options[o].connections) {
-				var main_offset = $('#main').position().left;
 				x1 = $('#'+ connection[0] + ' .connect').offset().left - main_offset + 10;
 				y1 = $('#'+ connection[0] + ' .connect').offset().top + 5;
 
-				x2 = $('#'+ connection[1]).offset().left - main_offset + $('#'+ connection[1]).width()/2;
+				x2 = $('#'+ connection[1]).offset().left - main_offset;
+				t + $('#'+ connection[1]).width()/2;
 				y2 = $('#'+ connection[1]).offset().top;
 
 				connection[2].attr({'x1':x1, 'y1':y1, 'x2':x2, 'y2':y2, 'stroke':'#5E5E5E', 'stroke-width':3});
@@ -281,7 +282,15 @@ function draw_connections() {
 $(document).ready(function() {	
 	$(document).mouseup(function() {
 		for(q in Qs) {
-			Qs[q].dragging = false;
+			reDraw = false;
+			if(Qs[q].dragging == true) {
+				Qs[q].dragging = false;
+				reDraw = true;
+			}
+
+			if(reDraw == true) {
+				draw_connections();
+			}
 		}
 	});
 	
@@ -360,11 +369,6 @@ $(document).ready(function() {
 					q.top = dy;
 					q.left = dx;
 					q.ele.css({'top': (dy - h/2), 'left': (dx + w - w/4)});
-					
-					
-				} else {
-					draw_connections();
-				}
 			}
 		} else {	
 			x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
