@@ -369,6 +369,7 @@ $(document).ready(function() {
 					q.top = dy;
 					q.left = dx;
 					q.ele.css({'top': (dy - h/2), 'left': (dx + w - w/4)});
+				}
 			}
 		} else {	
 			x1 = $('#'+first_id + ' .connect').offset().left - leftOffset + 5;
