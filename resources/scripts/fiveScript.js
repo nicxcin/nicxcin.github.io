@@ -361,6 +361,8 @@ $(document).ready(function() {
 					q.left = dx;
 					q.ele.css({'top': (dy - h/2), 'left': (dx + w - w/4)});
 					
+					
+				} else {
 					draw_connections();
 				}
 			}
