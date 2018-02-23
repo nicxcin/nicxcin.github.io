@@ -1,24 +1,19 @@
 var h1 = `
-
 <form id="contactForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-
 <input type=hidden name="oid" value="00D24000000IFZr">
 <input type=hidden name="retURL" id="thankyouPageUrl" value="http://www.3dlasermapping.com/thanks-for-submitting">
 <input type=hidden name="lead_source" value="Web"/>
-
-
-<br>
 <h4>Want to know more?<br> Get in touch:</h4>
 
-<input class="border3d" id="name" maxlength="100" name="name"  type="text" placeholder="Name *" required/>
-<input type=hidden class="floatLeft border3d" id="first_name" name="first_name"  />
-<input type=hidden class="floatLeft border3d" id="last_name"  name="last_name"  />
+<input class="border3d input" id="name" maxlength="100" name="name"  type="text" placeholder="Name *" required/>
+<input type=hidden id="first_name" name="first_name"  />
+<input type=hidden id="last_name"  name="last_name"  />
 <br>
 
-<input class="border3d" id="email" maxlength="80" name="email" required="" type="text" placeholder="Email *" required/>
+<input class="input border3d" id="email" maxlength="80" name="email" required="" type="text" placeholder="Email *" required/>
 
 
-<select id="country_code" class="border3d" name="country_code" required>
+<select id="country_code" class="input border3d" name="country_code" required>
 	<option disabled="disabled" selected="selected" value="">Country *</option>
 	<option value="AF">Afghanistan</option>
 	<option value="AX">Aland Islands</option>
@@ -273,9 +268,8 @@ var h1 = `
 
 <input id="realSubmitButton" title="contactform" type="submit" />
 
-
 <input id="00N2400000Bk4rX" name="00N2400000Bk4rX" class="hidden" type=hidden>
-
+<input id="00N24000004pBMc" name="00N24000004pBMc" class="hidden" type=hidden>
 </form>
 
 <script>
@@ -284,6 +278,7 @@ function submitForm() {
 	jQuery("#first_name").val("");
 	jQuery("#last_name").val("");
 	jQuery("#00N2400000Bk4rX").val("");
+	jQuery("#00N24000004pBMc").val("");
 
 	var name = jQuery("#name").val();
 	var split_name = name.split(" ");
@@ -302,16 +297,17 @@ function submitForm() {
 
 
 	var type = "specific";
-	var product  = " `
+	var product  = "`
 
-var h2  = ` ";
+var h2  = `";
 
-	jQuery("#00N2400000Bk4rX").val(product);
+	jQuery("#00N2400000Bk4rX").val("Specific page form");
+	jQuery("#00N24000004pBMc").val(product);
 
 
 	try {
 		jQuery('#thankyouPageUrl').val('http://www.3dlasermapping.com/thanks-for-submitting' + "?data=" + type + "-" + product).trigger('change');
-		//jQuery("#realSubmitButton").click();
+		jQuery("#realSubmitButton").click();
 	} catch(err) {
 		console.log("err");
 	}
@@ -319,9 +315,58 @@ var h2  = ` ";
 </script>`
 
 
+var css = `#contactForm .border3d {
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+}
+
+#contactForm {
+	margin-top: -70px;
+}
+
+
+#contactForm #realSubmitButton {
+  display:none;
+}
+
+#contactForm .btn-3d-light {
+ 	padding: 5px 16px 5px 16px; 
+  border-radius: 0.25em;
+}
+
+
+#contactForm .input {
+  width: 100%;
+}
+
+#contactForm .hidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+#contactForm .radioB {
+  float:left;
+  width: 33%;
+  text-align: center;
+}
+
+#contactForm .radioB input[type=radio] {
+  margin-top: -14px;
+}
+
+#contactForm #submitWrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}`
+
+
 
 function createForm() {
 	var h3 = h1 + $("#productInput").val() + h2;
 
-	$('.panel-body').html(h3);
+	$('#output').val(h3);
+	$('#cssoutput').val(css);
 }
