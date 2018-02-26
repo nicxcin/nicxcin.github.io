@@ -315,58 +315,10 @@ var h2  = `";
 </script>`
 
 
-var css = `#contactForm .border3d {
-  border-radius:3px;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
-}
-
-#contactForm {
-	margin-top: -70px;
-}
-
-
-#contactForm #realSubmitButton {
-  display:none;
-}
-
-#contactForm .btn-3d-light {
- 	padding: 5px 16px 5px 16px; 
-  border-radius: 0.25em;
-}
-
-
-#contactForm .input {
-  width: 100%;
-}
-
-#contactForm .hidden {
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-#contactForm .radioB {
-  float:left;
-  width: 33%;
-  text-align: center;
-}
-
-#contactForm .radioB input[type=radio] {
-  margin-top: -14px;
-}
-
-#contactForm #submitWrapper {
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-}`
-
 
 
 function createForm() {
 	var h3 = h1 + $("#productInput").val() + h2;
 
 	$('#output').val(h3);
-	$('#cssoutput').val(css);
 }
