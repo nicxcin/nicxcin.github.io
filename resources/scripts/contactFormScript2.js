@@ -319,6 +319,10 @@ var h2  = `";
 
 function createForm() {
 	var h3 = h1 + $("#productInput").val() + h2;
-
-	$('#output').val(h3);
+	$('#output').val("");
+	
+	setTimeout(func, 100);
+	function func() {
+    	$('#output').val(h3);
+	}
 }
