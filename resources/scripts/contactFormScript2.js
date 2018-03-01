@@ -287,10 +287,10 @@ function submitForm() {
 
 
 	if(n_names == 2) {
-		jQuery("#last_name").val(split_name[0]);
+		jQuery("#first_name").val(split_name[0]);
 		jQuery("#last_name").val(split_name[1]);
 	} else {
-		jQuery("#first_name").val(split_name[0]);
+		jQuery("#last_name").val(split_name[0]);
 	}
 
 
@@ -301,6 +301,7 @@ function submitForm() {
 
 var h2  = `";
 
+	jQuery("#moreInfo").val("Specific page form - This Lead was created by a specific contact form");
 	jQuery("#00N2400000Bk4rX").val(product);
 
 
