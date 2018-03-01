@@ -270,6 +270,7 @@ var h1 = `
 
 <input id="00N2400000Bk4rX" name="00N2400000Bk4rX" class="hidden" type=hidden>
 <input id="00N24000004pBMc" name="00N24000004pBMc" class="hidden" type=hidden>
+<textarea id="moreInfo" name="description"></textarea class="hidden" type=hidden>
 </form>
 
 <script>
@@ -278,7 +279,6 @@ function submitForm() {
 	jQuery("#first_name").val("");
 	jQuery("#last_name").val("");
 	jQuery("#00N2400000Bk4rX").val("");
-	jQuery("#00N24000004pBMc").val("");
 
 	var name = jQuery("#name").val();
 	var split_name = name.split(" ");
@@ -287,7 +287,7 @@ function submitForm() {
 
 
 	if(n_names == 2) {
-		jQuery("#first_name").val(split_name[0]);
+		jQuery("#last_name").val(split_name[0]);
 		jQuery("#last_name").val(split_name[1]);
 	} else {
 		jQuery("#first_name").val(split_name[0]);
@@ -301,8 +301,7 @@ function submitForm() {
 
 var h2  = `";
 
-	jQuery("#00N2400000Bk4rX").val("Specific page form");
-	jQuery("#00N24000004pBMc").val(product);
+	jQuery("#00N2400000Bk4rX").val(product);
 
 
 	try {
