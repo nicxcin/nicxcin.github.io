@@ -270,7 +270,7 @@ var h1 = `
 
 <input id="00N2400000Bk4rX" name="00N2400000Bk4rX" class="hidden" type=hidden>
 <input id="00N24000004pBMc" name="00N24000004pBMc" class="hidden" type=hidden>
-<textarea id="moreInfo" name="description"></textarea class="hidden" type=hidden>
+<textarea id="moreInfo" name="description" class="hidden" type=hidden></textarea>
 </form>
 
 <script>
