@@ -297,7 +297,7 @@ function submitForm() {
 
 
 	var type = "specific";
-	var product  =`
+	var product  ="`
 
 var h2  = `";
 
