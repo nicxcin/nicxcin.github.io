@@ -1,5 +1,3 @@
-jQuery( document ).ready(function() { 
-	var product = "Test";
-	var product = getProduct();
+function create(product) {
 	console.log(product);
-});
+}
