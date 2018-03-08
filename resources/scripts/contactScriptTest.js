@@ -1,3 +1,5 @@
 jQuery( document ).ready(function() { 
-	console.log("Test");
+	var product = "Test";
+	var product = getProduct();
+	console.log(product);
 });
