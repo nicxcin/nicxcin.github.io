@@ -18,31 +18,88 @@ var birbCol = '201, 176, 3';
 
 var birb;
 var storage;
+var twigsBtn;
 
 var ftx;
 var btx;
 
+var ES = [];
+
+var resources;
+
+var forestFloorCollect = function() {
+	var time = 5;
+	ES.push(new Notice("You collect 5 twigs", time));
+	storage.add('twigs', 5);
+	return time;
+}
+
+//collet event?
+
 $(function() {
+
+	engine.init();
+	storage.init();
+
 	setCanvas();
 	setHtml();
-	createBinds();
 	drawCanopy();
 	startGame();
-
-
 });
 
-function setupGame() {
-	
+function startGame() {
+	ES.push(new Notice("You land on a branch.", 3));
+	ES.push(new Notice("This is a good branch.", 6));
+	ES.push(new Notice("It's cold, a nest would help.", 8));
+	ES.push(new Show(
+		new Button(90, 30, 'Collect Twigs', 'Collect Loose Twigs off the forest floor', birb, 'You dive to the forest floor', forestFloorCollect), 8)
+	);
+
+	loop();
 }
 
-function startGame() {
-	addNotice("You land on a branch.");
-	setTimeout(() => {addNotice("This is a good branch.")}, 1000);
-	setTimeout(() => {addNotice("It's a little cold, maybe a nest would help.")}, 2000);
-	setTimeout(() => {$("#twigsA").show()}, 2000);
-	
+
+function loop() {
+	//processes all events and run()s any that are ready.
+
+	var event;
+	for (var i = 0; i < ES.length; i++) {
+		event = ES[i];
+
+		if (event.delay <= 0) {
+			event.run();
+			ES.splice(i, 1);
+			i--;
+		} else {
+			event.delay--;
+		}
+	}
+
+	setTimeout(loop, 100);
 }
+
+class Notice {
+	constructor(text, delay) {
+		this.text = text;
+		this.delay = delay;
+	}
+
+	run() {
+		addNotice(this.text);
+	}
+}
+
+class Show {
+	constructor(ele, delay) {
+		this.ele = ele;
+		this.delay = delay;
+	}
+
+	run() {
+		this.ele.show();
+	}
+}
+
 
 function setHtml() {
 	dragElement(document.getElementById("info"));
@@ -66,16 +123,43 @@ function setCanvas() {
 	createCanopy(WIDTH, HEIGHT);
 }
 
-function createBinds() {
+class Button {
+	constructor(top, left, text, tip, bird, preAlert, action) {
 
-	$("#twigsA").hide();
-	$("#twigsA").click(function() {
-		birb.hide();
-		$("#twigsA").fadeTo(500, 0.2).delay(5000).fadeTo(500, 1, function() {
-			addNotice("You collect 5 twigs off the forest floor");
-			birb.show();
-		});
-	});
+		this.ele = $('<div></div>');
+		this.ele.addClass('btn')
+				.html(text)
+				.attr('title', tip)
+				.css('top', top + '%')
+				.css('left', left + '%')
+				.hide();
+
+		$('#btns').append(this.ele);
+
+		this.bird = bird;
+		this.preAlert = preAlert;
+		this.pressed = false;
+
+		this.ele.mouseup(function() {
+			if(this.pressed == false) {
+				this.press(action());
+			}
+		}.bind(this));	
+	}
+
+	press(time) {
+		this.bird.hide();
+		this.pressed = true;
+		addNotice(this.preAlert);
+		this.ele.fadeTo(500, 0.2).delay((time*1000)-1000).fadeTo(500, 1, function() {
+			this.bird.show();
+			this.pressed = false;
+		}.bind(this));
+	}
+
+	show() {
+		$(this.ele).show();
+	}
 }
 
 function drawTree(tree) {
@@ -123,7 +207,7 @@ function createCanopy(WIDTH, HEIGHT) {
 
 	//tree.newBranch(700, 400, 0.1);
 
-	birb = new Bird(tree.branches[0], 1, birdCol) 
+	birb = new Bird(tree.branches[0], 0.5, birdCol) 
 
 	tree.addBird(birb);
 	//tree.addBird( new Bird(tree.branches[1], 1.2, birbCol) );
@@ -170,7 +254,6 @@ function fadeOutBird(bird) {
 	var i = 1;
 
 	interval = setInterval(function() {
-		console.log(i);
 		drawBird(bird, i);
 
 		i-=0.2;
@@ -275,8 +358,7 @@ function dragElement(elmnt) {
 
 function addNotice(text) {
 	var notice = $("<div>" + text +  "</div>");
-	$('#notices').prepend(notice);
-	$(notice).hide().delay(1000).fadeIn( 600 );
+	notice.hide().prependTo($('#notices')).fadeIn(2000);
 }
 
 class Branch {
@@ -380,12 +462,5 @@ class Bird {
 		    default:
 		    	break;
 		} 
-	}
-}
-
-class Storage {
-	constructor() {
-		this.twigs = 0;
-		this.leaves = 0;
 	}
 }

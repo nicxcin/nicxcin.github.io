@@ -1,5 +1,5 @@
 window.onload = function(){
-	var canvas = document.getElementById("weather");
+	var canvas = document.getElementById("background");
 	var ctx = canvas.getContext("2d");
 	
 	//canvas dimensions

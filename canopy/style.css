@@ -32,11 +32,6 @@ canvas {
 	color: #555;
 }
 
-#twigsA {
-	left: 30%;
-	bottom: 5%;
-}
-
 
 #background {
 	z-index: -150;
@@ -54,10 +49,13 @@ canvas {
 
 
 #info {
-	opacity: 0;
 	width: 200px;
-	left: 60%;
-	top: 20%;
+	left: 2%;
+	top: 50%;
+}
+
+#info.value {
+	float:right;
 }
 
 #notices {
@@ -73,12 +71,12 @@ canvas {
 }
 
 .box {
+	color: white;
 	border: 2px solid white;
-
 	position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
     text-align: center;
+    background-color: #333333;
 }
 
 .box .header {
