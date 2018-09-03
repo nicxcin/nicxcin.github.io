@@ -1,6 +1,19 @@
 window.onload = function(){
 	var canvas = document.getElementById("background");
 	var ctx = canvas.getContext("2d");
+
+	var running = true;
+	$('#snow').val(this.checked);
+
+	 $('#snow').change(function() {
+        if(this.checked) {
+            running = true;
+            update();
+        } else {
+        	running = false;
+        	ctx.clearRect(0, 0, W, H);
+        }  
+    });
 	
 	//canvas dimensions
 	var W = window.innerWidth;
@@ -77,8 +90,8 @@ window.onload = function(){
 				}
 			}
 		}
+		if(running) {
+			setTimeout(draw, 100);
+		}
 	}
-	
-	//animation loop
-	setInterval(draw, 50);
 }
