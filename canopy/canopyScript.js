@@ -201,9 +201,9 @@ function drawCanopy() {
 
 function createCanopy(WIDTH, HEIGHT) {
 	tree = new Tree(WIDTH/5, treeCol, barkCol);
-	tree.newBranch(500, 300, 0.1);
+	tree.newBranch(400, 400, 0.1);
 	tree.getBranches().slice(-1)[0].newLat(100, 50, 1); 
-	tree.getBranches().slice(-1)[0].newLat(250, 100, 5.5);
+	tree.getBranches().slice(-1)[0].newLat(350, 100, 5.5);
 
 	//tree.newBranch(700, 400, 0.1);
 
@@ -462,5 +462,15 @@ class Bird {
 		    default:
 		    	break;
 		} 
+	}
+}
+
+class Basket {
+	constructor(type) {
+		this.type = type;
+	}
+
+	setType(type) {
+		this.type = type;
 	}
 }
