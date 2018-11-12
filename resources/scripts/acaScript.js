@@ -111,7 +111,7 @@ var h1 = `
             
             <li class="page parent"> 
                 <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
-                <a href="#" >Issue Resolution</a>
+                <a href="https://geoslam.com/academy/issue-resolution/" >Issue Resolution</a>
                 
                 <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-change-the-time-on-the-zeb-revo-datalogger/">How to change the time on the ZEB-REVO Datalogger</a></li>
