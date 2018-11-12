@@ -1,38 +1,37 @@
 var h1 = `
 
 <style>
-            * {
-                font-family: Lato, sans-serif;
-                font-weight: 300;
-                font-size: 16px;
-                color: rgba(0,0,0,0.6399999857);
-            }
-            
-            #title {
-                font-size: 26px;
-                font-weight: 300;
-            }
-            
-            .page {
-                margin-bottom: 10px;
-                margin-top: 10px;
-            }
-            
-            .menu {
-                list-style: none;
-                padding-left: 16px;
-            }
-            
-            .page a {
-                margin-left: 18px;
-                text-decoration: none;
-            }
-            
-            .toggle {
-                font-stretch: 140%;
-                margin-right: -18px;
-                cursor: pointer; cursor: hand;
-            }
+	#nav {
+		position: absolute;
+        height: 500px;
+		width: 500px;
+	}
+
+	#title {
+		font-size: 26px;
+		font-weight: 300;
+	}
+
+	.page {
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+
+	.menu {
+		list-style: none;
+		padding-left: 16px;
+	}
+
+	.page a {
+		margin-left: 18px;
+		text-decoration: none;
+	}
+
+	.toggle {
+		font-stretch: 140%;
+		margin-right: -18px;
+		cursor: pointer; cursor: hand;
+	}
             
             
         </style>
@@ -123,7 +122,7 @@ var h1 = `
 console.log("Form Script Loaded");
 
 function create() {
-	jQuery("#nav-outer").html(h1);
+	jQuery("#nav-outer").append(h1);
 }
 
 
