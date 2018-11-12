@@ -27,7 +27,13 @@ var h1 = `
 
 	#nav .page a {
 		text-decoration: none;
+		color: #f39200;
 	}
+	
+	#nav .page a:hover {
+		color: #00954d;
+	}
+
 
 	#nav .toggle {
 		font-stretch: 140%;
