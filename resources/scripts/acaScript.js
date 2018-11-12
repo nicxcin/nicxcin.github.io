@@ -8,26 +8,26 @@ var h1 = `
 		z-index: 1000;
 	}
 
-	#title {
+	#nav #title {
 		font-size: 26px;
 		font-weight: 300;
 	}
 
-	.page {
+	#nav .page {
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
 
-	.menu {
+	#nav .menu {
 		list-style: none;
 	}
 
-	.page a {
+	#nav .page a {
 		margin-left: 18px;
 		text-decoration: none;
 	}
 
-	.toggle {
+	#nav .toggle {
 		font-stretch: 140%;
 		margin-right: -18px;
 		cursor: pointer; cursor: hand;
