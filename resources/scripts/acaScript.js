@@ -20,7 +20,6 @@ var h1 = `
 
 	.menu {
 		list-style: none;
-		padding-left: 16px;
 	}
 
 	.page a {
@@ -45,14 +44,14 @@ var h1 = `
                 <a href="#" >About GeoSLAM Academy </a>
             </li>
             
-            <li class="page">
+            <li class="page parent">
                 <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
                 <a href="#" >Hardware </a>
                 
                 <ul class="submenu menu">
                     <li class="page"><a href="#" >REVO Standard </a></li>
                     <li class="page"><a href="#" >REVO Real-Time</a></li>
-                    <li class="page">
+                    <li class="page parent">
                         <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>
                         <a href="#" >ZEB-CAM</a>
                         
@@ -63,7 +62,7 @@ var h1 = `
                 </ul>
             </li>
             
-            <li class="page"> 
+            <li class="page parent"> 
                 <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
                 <a href="#" >Survey Preperation </a>
                 
@@ -79,14 +78,14 @@ var h1 = `
                 </ul>
             </li>
             
-            <li class="page"> 
+            <li class="page parent"> 
                 <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
                 <a href="#" >Software</a>  
                  
                  <ul class="submenu menu">
                     <li class="page"><a href="#">GeoSlam HUB</a>
                     <li class="page"><a href="#">GeoSLAM DRAW</a></li>
-                    <li class="page">
+                    <li class="page parent">
                         <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>
                         <a href="#">ContextCapture - for Reality Modelling</a>
                             
@@ -99,11 +98,11 @@ var h1 = `
                 </ul>
             </li>
             
-            <li class="page"> <a href="#" >GeoSLAM Academy Webinars</a></li>
-            <li class="page"> <a href="#" >What is SLAM?</a></li>
+            <li class="page"><a href="#" >GeoSLAM Academy Webinars</a></li>
+            <li class="page"><a href="#" >What is SLAM?</a></li>
             <li class="page"><a href="#" >Demo Datasets</a></li>
             
-            <li class="page"> 
+            <li class="page parent"> 
                 <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
                 <a href="#" >Issue Resolution</a>
                 
