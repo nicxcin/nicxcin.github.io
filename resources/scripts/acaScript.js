@@ -3,8 +3,9 @@ var h1 = `
 <style>
 	#nav {
 		position: absolute;
-        height: 500px;
-		width: 500px;
+		top: 0;
+		left: 20px;
+
 	}
 
 	#title {
