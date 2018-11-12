@@ -122,7 +122,7 @@ var h1 = `
 console.log("Form Script Loaded");
 
 function create() {
-	jQuery("#nav-outer").append(h1);
+	jQuery("body").append(h1);
 }
 
 
