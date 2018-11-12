@@ -5,7 +5,7 @@ var h1 = `
 		position: absolute;
 		top: 0;
 		left: 20px;
-
+		z-index: 1000;
 	}
 
 	#title {
