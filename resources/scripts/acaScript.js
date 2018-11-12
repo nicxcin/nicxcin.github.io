@@ -127,15 +127,15 @@ function create() {
 }
 
 
-$(function() {
+jQuery(function() {
     create();
     
-    $( ".submenu" ).toggle();
+    jQuery( ".submenu" ).toggle();
     
-    $( ".toggle" ).click(function() {
+    jQuery( ".toggle" ).click(function() {
         console.log("Click");
-        $( this ).children().toggleClass('fa-chevron-up');
-        $( this ).children().toggleClass('fa-chevron-down');
-        $( this ).next().next( ".submenu" ).slideToggle();
+        jQuery( this ).children().toggleClass('fa-chevron-up');
+        jQuery( this ).children().toggleClass('fa-chevron-down');
+        jQuery( this ).next().next( ".submenu" ).slideToggle();
     });
 });
