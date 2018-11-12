@@ -50,81 +50,78 @@ var h1 = `
         <h1 id="title">GeoSlam Academy</h1>
         
         <ul id="pages" class="menu">
-            <li class="page"> 
-                <a href="#" >About GeoSLAM Academy </a>
-            </li>
+            <li class="page"><a href="https://geoslam.com/academy/" >About GeoSLAM Academy </a></li>
             
             <li class="page parent">
-                <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
-                <a href="#" >Hardware </a>
+                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <a href="https://geoslam.com/academy/hardware/" >Hardware </a>
                 
                 <ul class="submenu menu">
-                    <li class="page"><a href="#" >REVO Standard </a></li>
-                    <li class="page"><a href="#" >REVO Real-Time</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/hardware/revo-real-time-system/" >REVO Real-Time</a></li>
                     <li class="page parent">
-                        <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>
-                        <a href="#" >ZEB-CAM</a>
+                        <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
+                        <a href="https://geoslam.com/academy/hardware/zeb-cam/" >ZEB-CAM</a>
                         
                         <ul class="submenu menu">
-                            <li class="page"><a href="#" >ZEB-CAM prior July 2018</a></li>
+                            <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-cam/zeb-cam-pre-july-2018/" >ZEB-CAM prior July 2018</a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
-                <a href="#" >Survey Preperation </a>
+                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <a href="https://geoslam.com/academy/survey-preparation/" >Survey Preperation </a>
                 
                 <ul class="submenu menu">
-                    <li class="page"><a href="#">Route Planning</a></li>
-                    <li class="page"><a href="#">Breaking Down Big Scans</a></li>
-                    <li class="page"><a href="#">Loop Closures</a></li>
-                    <li class="page"><a href="#">Transitioning Between Environments</a></li>
-                    <li class="page"><a href="#">Scanning Corridors and Tunnels</a></li>
-                    <li class="page"><a href="#">Main Challenges and Areas of Complication</a></li>
-                    <li class="page"><a href="#">Scanning with Colour in Mind - Using the ZEB-CAM</a></li>
-                    <li class="page"><a href="#">Capturing On-Trajectory Reference Points</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/route-planning/">Route Planning</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/breaking-down-big-scans/">Breaking Down Big Scans</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/loop-closures/">Loop Closures</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/transitioning-between-environments/">Transitioning Between Environments</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/scanning-corridors-and-tunnels/">Scanning Corridors and Tunnels</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/main-challenges-and-areas-of-complication/">Main Challenges and Areas of Complication</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/scanning-with-colour-in-mind-using-the-zeb-cam/">Scanning with Colour in Mind - Using the ZEB-CAM</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/survey-preparation/capturing-on-trajectory-reference-points/">Capturing On-Trajectory Reference Points</a></li>
                 </ul>
             </li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
-                <a href="#" >Software</a>  
+                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <a href="https://geoslam.com/academy/software/" >Software</a>  
                  
                  <ul class="submenu menu">
-                    <li class="page"><a href="#">GeoSlam HUB</a>
-                    <li class="page"><a href="#">GeoSLAM DRAW</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/software/geoslam-hub/">GeoSlam HUB</a>
+                    <li class="page"><a href="https://geoslam.com/academy/software/geoslam-draw/">GeoSLAM DRAW</a></li>
                     <li class="page parent">
-                        <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>
-                        <a href="#">ContextCapture - for Reality Modelling</a>
+                        <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
+                        <a href="https://geoslam.com/academy/software/contextcapture/">ContextCapture - for Reality Modelling</a>
                             
                         <ul class="submenu menu">
-                            <li class="page"><a href="#" >ContextCapture Editor</a></li>
+                            <li class="page"><a href="https://geoslam.com/academy/software/contextcapture/contextcapture-editor/" >ContextCapture Editor</a></li>
                         </ul>
                      </li>
                     <li class="page"><a href="#">ClearEdge Verity - for Construction Verification</a></li>
-                    <li class="page"><a href="#">Topcon Magnet Collage</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/software/topcon-magnet-collage/">Topcon Magnet Collage</a></li>
                 </ul>
             </li>
             
-            <li class="page"><a href="#" >GeoSLAM Academy Webinars</a></li>
-            <li class="page"><a href="#" >What is SLAM?</a></li>
-            <li class="page"><a href="#" >Demo Datasets</a></li>
+            <li class="page"><a href="https://geoslam.com/academy/what-is-slam/" >What is SLAM?</a></li>
+            <li class="page"><a href="https://geoslam.com/academy/demo-datasets/" >Demo Datasets</a></li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-up"></i> </span>  
+                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="#" >Issue Resolution</a>
                 
                 <ul class="submenu menu">
-                    <li class="page"><a href="#">How to change the time on the ZEB-REVO Datalogger</a></li>
-                    <li class="page"><a href="#">How to remove and replace GeoSLAM Draw License file</a></li>
-                    <li class="page"><a href="#">How to use the ZEB Uploader to upload and flag data sets</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-change-the-time-on-the-zeb-revo-datalogger/">How to change the time on the ZEB-REVO Datalogger</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-remove-and-replace-geoslam-draw-license-file/">How to remove and replace GeoSLAM Draw License file</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-use-the-zeb-uploader-to-upload-and-flag-data-sets/">How to use the ZEB Uploader to upload and flag data sets</a></li>
                 </ul>
             </li>
             
             <li class="page"> 
-                <a href="#" >Contact Us </a>
+                <a href="https://geoslam.com/academy/contact-us/" >Contact Us </a>
             </li>
         </ul>
     </div>`
