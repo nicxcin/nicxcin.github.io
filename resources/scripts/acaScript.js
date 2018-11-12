@@ -16,6 +16,9 @@ var h1 = `
 	#nav .page {
 		margin-bottom: 10px;
 		margin-top: 10px;
+		max-width: 200px;
+		padding-left: 18px;
+		position: relative;
 	}
 
 	#nav .menu {
@@ -23,7 +26,6 @@ var h1 = `
 	}
 
 	#nav .page a {
-		margin-left: 18px;
 		text-decoration: none;
 	}
 
@@ -31,6 +33,8 @@ var h1 = `
 		font-stretch: 140%;
 		margin-right: -18px;
 		cursor: pointer; cursor: hand;
+		position: absolute;
+		left: 0px;
 	}
             
             
