@@ -42,6 +42,11 @@ var h1 = `
 		position: absolute;
 		left: 0px;
 	}
+	
+	#nav .fas {
+		font-family: fontawesome;
+    		font-style: initial;
+	}
             
             
         </style>
