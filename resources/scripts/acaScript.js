@@ -23,7 +23,7 @@ var h1 = `
 	}
 
 	#nav #return a {
-		font-size: 80%:
+		font-size: 80%;
 	}
 
 	#nav .menu {
