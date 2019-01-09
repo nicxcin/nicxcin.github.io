@@ -11,6 +11,7 @@ var h1 = `
 	#nav #title {
 		font-size: 26px;
 		font-weight: 300;
+    		margin-top: 0;
 	}
 
 	#nav .page {
