@@ -4,7 +4,7 @@ var h1 = `
 	#nav {
 		position: absolute;
 		top: 0;
-		left: 5px;
+		left: 10px;
 		z-index: 1000;
 	}
 
