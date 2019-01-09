@@ -56,7 +56,7 @@ var h1 = `
 <div id="nav">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<h6> Back to Homepage</h6>
+	<h6><a href="https://geoslam.com/"> Back to Homepage</a></h6>
         <h1 id="title">GeoSlam Academy</h1>
         
         <ul id="pages" class="menu">
