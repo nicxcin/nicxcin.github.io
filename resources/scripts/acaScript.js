@@ -22,7 +22,7 @@ var h1 = `
 		position: relative;
 	}
 
-	#nav #return {
+	#nav #return a {
 		font-size: 80%:
 	}
 
