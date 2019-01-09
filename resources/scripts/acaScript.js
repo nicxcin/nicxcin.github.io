@@ -4,7 +4,7 @@ var h1 = `
 	#nav {
 		position: absolute;
 		top: 0;
-		left: 20px;
+		left: 5px;
 		z-index: 1000;
 	}
 
@@ -23,6 +23,7 @@ var h1 = `
 
 	#nav .menu {
 		list-style: none;
+		margin-left: 0;
 	}
 
 	#nav .page a {
