@@ -9,10 +9,8 @@ var h1 = `
 		z-index: 1000;
 	}
 
-	#logout #title {
-		font-size: 26px;
-		font-weight: 300;
-    	margin-top: 0;
+	#logout #return a {
+		font-size: 80%;
 	}
 
 	#nav {
@@ -158,8 +156,7 @@ var h1 = `
     </div>
 
 	<div id="logout">
-		<h1 id="title">Logout</h1>
-
+		<h6 id="return"><a href="https://geoslam.com/wp-login.php?action=logout"> Logout </a></h6>
 	</div>`
 
 console.log("Form Script Loaded");
