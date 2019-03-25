@@ -8,7 +8,13 @@ var h1 = `
 		right: 10px;
 		z-index: 1000;
 	}
-	
+
+	#logout #title {
+		font-size: 26px;
+		font-weight: 300;
+    	margin-top: 0;
+	}
+
 	#nav {
 		position: absolute;
 		top: 0;
@@ -153,7 +159,6 @@ var h1 = `
 
 	<div id="logout">
 		<h1 id="title">Logout</h1>
-	}
 
 	</div>`
 
