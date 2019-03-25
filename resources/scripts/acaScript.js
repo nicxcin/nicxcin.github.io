@@ -14,7 +14,7 @@ var h1 = `
 	#nav #title {
 		font-size: 26px;
 		font-weight: 300;
-    	margin-top: 0;
+    		margin-top: 0;
 	}
 
 	#nav .page {
@@ -27,6 +27,11 @@ var h1 = `
 
 	#nav #return a {
 		font-size: 80%;
+	}
+
+	#nav #return {
+		margin-bottom: 10px;
+		margin-top: 2px;
 	}
 
 	#nav .menu {
