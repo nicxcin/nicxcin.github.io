@@ -6,7 +6,7 @@ var h1 = `
 
 	#nav {
 		position: absolute;
-		top: 0;
+		top: 30px;
 		left: 10px;
 		z-index: 1000;
 	}
@@ -14,7 +14,7 @@ var h1 = `
 	#nav #title {
 		font-size: 26px;
 		font-weight: 300;
-    		margin-top: 0;
+    		margin-top: 10px;
 	}
 
 	#nav .page {
