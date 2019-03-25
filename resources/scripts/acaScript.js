@@ -2,16 +2,7 @@ var h1 = `
 
 <style>
 	
-	#logout {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		z-index: 1000;
-	}
 
-	#logout #return a {
-		font-size: 100%;
-	}
 
 	#nav {
 		position: absolute;
@@ -72,6 +63,7 @@ var h1 = `
 <div id="nav">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<h6 id="return"><a href="https://geoslam.com/wp-login.php?action=logout"> Logout </a></h6>
 	<h6 id="return"><a href="https://geoslam.com/"> Back to Homepage</a></h6>
         <h1 id="title">GeoSlam Academy</h1>
         
@@ -153,11 +145,7 @@ var h1 = `
                 <a href="https://geoslam.com/academy/contact-us/" >Contact Us </a>
             </li>
         </ul>
-    </div>
-
-	<div id="logout">
-		<h6 id="return"><a href="https://geoslam.com/wp-login.php?action=logout"> Logout </a></h6>
-	</div>`
+    </div>`
 
 console.log("Form Script Loaded");
 
