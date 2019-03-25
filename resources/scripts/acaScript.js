@@ -1,6 +1,14 @@
 var h1 = `
 
 <style>
+	
+	#logout {
+		position: absolute;
+		top: 0;
+		right: 10px;
+		z-index: 1000;
+	}
+	
 	#nav {
 		position: absolute;
 		top: 0;
@@ -11,7 +19,7 @@ var h1 = `
 	#nav #title {
 		font-size: 26px;
 		font-weight: 300;
-    		margin-top: 0;
+    	margin-top: 0;
 	}
 
 	#nav .page {
@@ -141,7 +149,13 @@ var h1 = `
                 <a href="https://geoslam.com/academy/contact-us/" >Contact Us </a>
             </li>
         </ul>
-    </div>`
+    </div>
+
+	<div id="logout">
+		<h1 id="title">Logout</h1>
+	}
+
+	</div>`
 
 console.log("Form Script Loaded");
 
