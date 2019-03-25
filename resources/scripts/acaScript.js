@@ -4,13 +4,13 @@ var h1 = `
 	
 	#logout {
 		position: absolute;
-		top: 0;
-		right: 10px;
+		top: 20px;
+		right: 20px;
 		z-index: 1000;
 	}
 
 	#logout #return a {
-		font-size: 80%;
+		font-size: 100%;
 	}
 
 	#nav {
