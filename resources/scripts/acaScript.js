@@ -82,8 +82,6 @@ var h1 = `
                 <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-real-time-system/" >REVO Real-Time</a></li>
-					<li class="page"><a href="https://geoslam.com/zeb-pano/" >ZEB PANO</a></li>
-					<li class="page"><a href="https://geoslam.com/zeb-horizon/" >ZEB HORIZON</a></li>
 
                     <li class="page parent">
                         <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
