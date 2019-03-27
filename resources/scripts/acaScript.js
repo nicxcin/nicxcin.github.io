@@ -181,8 +181,7 @@ jQuery(function() {
     create();
     
     jQuery( ".toggle" ).click(function() {
-        geo_toggle(this);
-        console.log(this.id);
+        geo_toggle_name(this.id);
     });
 });
 
