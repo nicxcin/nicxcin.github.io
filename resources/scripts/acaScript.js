@@ -1,75 +1,75 @@
 var h1 = `
 
 <style>
-	
+    
 
 
-	#nav {
-		position: absolute;
-		top: 30px;
-		left: 10px;
-		z-index: 1000;
-	}
+    #nav {
+        position: absolute;
+        top: 30px;
+        left: 10px;
+        z-index: 1000;
+    }
 
-	#nav #title {
-		font-size: 26px;
-		font-weight: 300;
-    		margin-top: 10px;
-	}
+    #nav #title {
+        font-size: 26px;
+        font-weight: 300;
+            margin-top: 10px;
+    }
 
-	#nav .page {
-		margin-bottom: 10px;
-		margin-top: 10px;
-		max-width: 200px;
-		padding-left: 18px;
-		position: relative;
-	}
+    #nav .page {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        max-width: 200px;
+        padding-left: 18px;
+        position: relative;
+    }
 
-	#nav #return a {
-		font-size: 80%;
-	}
+    #nav #return a {
+        font-size: 80%;
+    }
 
-	#nav #return {
-		margin-bottom: 10px;
-		margin-top: 2px;
-	}
+    #nav #return {
+        margin-bottom: 10px;
+        margin-top: 2px;
+    }
 
-	#nav .menu {
-		list-style: none;
-		margin-left: 0;
-	}
+    #nav .menu {
+        list-style: none;
+        margin-left: 0;
+    }
 
-	#nav .page a {
-		text-decoration: none;
-		color: #f39200;
-	}
-	
-	#nav .page a:hover {
-		color: #00954d;
-	}
+    #nav .page a {
+        text-decoration: none;
+        color: #f39200;
+    }
+    
+    #nav .page a:hover {
+        color: #00954d;
+    }
 
 
-	#nav .toggle {
-		font-stretch: 140%;
-		margin-right: -18px;
-		cursor: pointer; cursor: hand;
-		position: absolute;
-		left: 0px;
-	}
-	
-	#nav .fas {
-		font-family: fontawesome;
-    		font-style: initial;
-	}
+    #nav .toggle {
+        font-stretch: 140%;
+        margin-right: -18px;
+        cursor: pointer; cursor: hand;
+        position: absolute;
+        left: 0px;
+    }
+    
+    #nav .fas {
+        font-family: fontawesome;
+            font-style: initial;
+    }
             
             
         </style>
 
 <div id="nav">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<h6 id="return"><a href="https://geoslam.com/wp-login.php?action=logout"> Logout </a></h6>
-	<h6 id="return"><a href="https://geoslam.com/"> Back to Homepage</a></h6>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <h6 id="return"><a href="https://geoslam.com/wp-login.php?action=logout"> Logout </a></h6>
+    <h6 id="return"><a href="https://geoslam.com/"> Back to Homepage</a></h6>
         <h1 id="title">GeoSlam Academy</h1>
         
         <ul id="pages" class="menu">
@@ -79,10 +79,10 @@ var h1 = `
                 <span class="toggle" id="hardware"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/hardware/?open=hardware" >Hardware </a>
                 
-                <ul class="submenu menu">
+                <ul class="submenu menu" id="hardware_t">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-real-time-system/" >REVO Real-Time</a></li>
-					<li class="page"><a href="https://geoslam.com/academy/zeb-horizon/" >Zeb Horizon</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/zeb-horizon/" >Zeb Horizon</a></li>
 
                     <li class="page parent">
                         <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
@@ -154,20 +154,20 @@ var h1 = `
 console.log("Form Script Loaded");
 
 function create() {
-	jQuery("body").append(h1);
+    jQuery("body").append(h1);
 
     var url = new URL(window.location);
     var open = url.searchParams.get("open");
     console.log(open);
 
-    geo_toggle(jQuery('#' + open)[0]);
+    geo_toggle(open);
 }
 
 function geo_toggle(ele) {
     console.log(ele);
-    jQuery( ele ).children().toggleClass('fa-chevron-up');
-    jQuery( ele ).children().toggleClass('fa-chevron-down');
-    jQuery( ele ).next().next( ".submenu" ).slideToggle();
+    jQuery( "#" + ele ).children().toggleClass('fa-chevron-up');
+    jQuery( "#" + ele ).children().toggleClass('fa-chevron-down');
+    jQuery( "#" + ele + "_t" ).next().next( ".submenu" ).slideToggle();
 }
 
 
