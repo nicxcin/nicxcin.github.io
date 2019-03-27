@@ -77,7 +77,7 @@ var h1 = `
             
             <li class="page parent">
                 <span class="toggle" id="hardware"> <i class="fas fa-chevron-down"></i> </span>  
-                <a href="https://geoslam.com/academy/hardware/?open=hardware" >Hardware </a>
+                <a href="https://geoslam.com/academy/hardware/?opena=hardware" >Hardware </a>
                 
                 <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
@@ -86,7 +86,7 @@ var h1 = `
 
                     <li class="page parent">
                         <span class="toggle" id="zeb-cam"> <i class="fas fa-chevron-down"></i> </span>
-                        <a href="https://geoslam.com/academy/hardware/zeb-cam/?open=hardware" >ZEB-CAM</a>
+                        <a href="https://geoslam.com/academy/hardware/zeb-cam/?opena=hardware&openb=zeb-cam" >ZEB-CAM</a>
                         
                         <ul class="submenu menu">
                             <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-cam/zeb-cam-pre-july-2018/" >ZEB-CAM prior July 2018</a></li>
@@ -120,7 +120,7 @@ var h1 = `
                     <li class="page"><a href="https://geoslam.com/academy/software/geoslam-draw/">GeoSLAM DRAW</a></li>
                     <li class="page parent">
                         <span class="toggle" id="contextcapture"> <i class="fas fa-chevron-down"></i> </span>
-                        <a href="https://geoslam.com/academy/software/contextcapture/?open[]=contextcapture&open[]=software">ContextCapture - for Reality Modelling</a>
+                        <a href="https://geoslam.com/academy/software/contextcapture/?opena=contextcapture&openb=software">ContextCapture - for Reality Modelling</a>
                             
                         <ul class="submenu menu">
                             <li class="page"><a href="https://geoslam.com/academy/software/contextcapture/contextcapture-editor/" >ContextCapture Editor</a></li>
@@ -157,9 +157,10 @@ function create() {
     jQuery("body").append(h1);
     jQuery( ".submenu" ).toggle();
     var url = new URL(window.location);
-    var open = url.searchParams.get("open");
-    console.log(open);
-    geo_toggle(jQuery( "#" + open ));
+    var opena = url.searchParams.get("opena");
+    var openb = url.searchParams.get("openb");
+    geo_toggle(jQuery( "#" + opena ));
+    geo_toggle(jQuery( "#" + openb ));
 }
 
 function geo_toggle_name(ele) {
