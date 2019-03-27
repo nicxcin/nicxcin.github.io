@@ -159,9 +159,8 @@ function create() {
 
     var url = new URL(window.location);
     var open = url.searchParams.get("open");
-    console.log(open);
-
-    geo_toggle_name(open);
+    //geo_toggle_name(open);
+    geo_togge(jQuery( "#" + ele ));
 }
 
 function geo_toggle_name(ele) {
@@ -187,7 +186,7 @@ jQuery(function() {
     create();
     
     jQuery( ".toggle" ).click(function() {
-        geo_toggle_name(this.id);
+        geo_toggle(this);
     });
 });
 
