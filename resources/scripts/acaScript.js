@@ -155,6 +155,7 @@ console.log("Form Script Loaded");
 
 function create() {
     jQuery("body").append(h1);
+    jQuery( ".submenu" ).toggle();
 
     var url = new URL(window.location);
     var open = url.searchParams.get("open");
@@ -168,14 +169,13 @@ function geo_toggle(ele) {
     jQuery( "#" + ele ).children().toggleClass('fa-chevron-up');
     jQuery( "#" + ele ).children().toggleClass('fa-chevron-down');
     console.log(jQuery( "#" + ele + "_t" ))
-    jQuery( "#" + ele + "_t" )[0].slideToggle();
+    jQuery( "#" + ele + "_t" ).slideToggle();
+    jQuery( "#" + ele + "_t" ).slideToggle();
 }
 
 
 jQuery(function() {
     create();
-    
-    jQuery( ".submenu" ).toggle();
     
     jQuery( ".toggle" ).click(function() {
         geo_toggle(this);
