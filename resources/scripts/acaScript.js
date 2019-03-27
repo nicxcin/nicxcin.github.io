@@ -164,10 +164,10 @@ function create() {
 }
 
 function geo_toggle(ele) {
-    console.log(jQuery( "#" + ele ));
+    console.log(jQuery( '"#" + ele' ));
     jQuery( "#" + ele ).children().toggleClass('fa-chevron-up');
     jQuery( "#" + ele ).children().toggleClass('fa-chevron-down');
-    console.log(jQuery( "#" + ele + "_t" ))
+    console.log(jQuery( '"#" + ele + "_t"' ))
     jQuery( "#" + ele + "_t" ).slideToggle();
 }
 
