@@ -170,7 +170,9 @@ function geo_toggle_name(ele) {
     dom.children().toggleClass('fa-chevron-up');
     dom.children().toggleClass('fa-chevron-down');
 
-    jQuery( "#" + ele + "_t" ).slideToggle();
+    dom.next().next('.submenu').slideToggle();
+
+    //jQuery( "#" + ele + "_t" ).slideToggle();
 }
 
 function geo_toggle(ele) {
