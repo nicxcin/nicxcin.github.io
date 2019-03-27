@@ -160,7 +160,7 @@ function create() {
     var open = url.searchParams.get("open");
     console.log(open);
 
-    geo_toggle(jQuery(open));
+    geo_toggle(jQuery('#' + open));
 }
 
 function geo_toggle(ele) {
