@@ -77,7 +77,7 @@ var h1 = `
             
             <li class="page parent">
                 <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
-                <a href="https://geoslam.com/academy/hardware/?open=" >Hardware </a>
+                <a href="https://geoslam.com/academy/hardware/?open=hardware" >Hardware </a>
                 
                 <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
