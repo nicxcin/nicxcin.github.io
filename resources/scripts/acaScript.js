@@ -165,8 +165,11 @@ function create() {
 }
 
 function geo_toggle_name(ele) {
-    jQuery( "#" + ele ).children().toggleClass('fa-chevron-up');
-    jQuery( "#" + ele ).children().toggleClass('fa-chevron-down');
+    var dom = jQuery( "#" + ele );
+
+    dom.children().toggleClass('fa-chevron-up');
+    dom.children().toggleClass('fa-chevron-down');
+
     jQuery( "#" + ele + "_t" ).slideToggle();
 }
 
