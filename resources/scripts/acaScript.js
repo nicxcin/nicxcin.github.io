@@ -86,7 +86,7 @@ var h1 = `
 
                     <li class="page parent">
                         <span class="toggle" id="zeb-cam"> <i class="fas fa-chevron-down"></i> </span>
-                        <a href="https://geoslam.com/academy/hardware/zeb-cam/" >ZEB-CAM</a>
+                        <a href="https://geoslam.com/academy/hardware/zeb-cam/?open=hardware" >ZEB-CAM</a>
                         
                         <ul class="submenu menu">
                             <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-cam/zeb-cam-pre-july-2018/" >ZEB-CAM prior July 2018</a></li>
@@ -120,7 +120,7 @@ var h1 = `
                     <li class="page"><a href="https://geoslam.com/academy/software/geoslam-draw/">GeoSLAM DRAW</a></li>
                     <li class="page parent">
                         <span class="toggle" id="contextcapture"> <i class="fas fa-chevron-down"></i> </span>
-                        <a href="https://geoslam.com/academy/software/contextcapture/">ContextCapture - for Reality Modelling</a>
+                        <a href="https://geoslam.com/academy/software/contextcapture/?open[]=contextcapture&open[]=software">ContextCapture - for Reality Modelling</a>
                             
                         <ul class="submenu menu">
                             <li class="page"><a href="https://geoslam.com/academy/software/contextcapture/contextcapture-editor/" >ContextCapture Editor</a></li>
@@ -156,10 +156,9 @@ console.log("Form Script Loaded");
 function create() {
     jQuery("body").append(h1);
     jQuery( ".submenu" ).toggle();
-
     var url = new URL(window.location);
     var open = url.searchParams.get("open");
-    //geo_toggle_name(open);
+    console.log(open);
     geo_toggle(jQuery( "#" + open ));
 }
 
