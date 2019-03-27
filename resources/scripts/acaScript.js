@@ -76,7 +76,7 @@ var h1 = `
             <li class="page"><a href="https://geoslam.com/academy/" >About GeoSLAM Academy </a></li>
             
             <li class="page parent">
-                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <span class="toggle" id="hardware"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/hardware/?open=hardware" >Hardware </a>
                 
                 <ul class="submenu menu">
@@ -155,6 +155,12 @@ console.log("Form Script Loaded");
 
 function create() {
 	jQuery("body").append(h1);
+
+    var url = new URL(window.location);
+    var open = url.searchParams.get("open");
+    console.log(open);
+
+    geo_toggle(jQuery(open));
 }
 
 function geo_toggle(ele) {
@@ -162,6 +168,7 @@ function geo_toggle(ele) {
     jQuery( ele ).children().toggleClass('fa-chevron-down');
     jQuery( ele ).next().next( ".submenu" ).slideToggle();
 }
+
 
 jQuery(function() {
     create();
