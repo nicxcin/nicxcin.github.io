@@ -170,7 +170,7 @@ jQuery(function() {
     
     jQuery( ".toggle" ).click(function() {
         console.log(this);
-        geo_tottle(this);
+        geo_toggle(this);
     });
 });
 
