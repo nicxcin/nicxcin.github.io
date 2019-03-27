@@ -79,13 +79,13 @@ var h1 = `
                 <span class="toggle" id="hardware"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/hardware/?open=hardware" >Hardware </a>
                 
-                <ul class="submenu menu" id="hardware_t">
+                <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-real-time-system/" >REVO Real-Time</a></li>
                     <li class="page"><a href="https://geoslam.com/academy/zeb-horizon/" >Zeb Horizon</a></li>
 
                     <li class="page parent">
-                        <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
+                        <span class="toggle" id="zeb-cam"> <i class="fas fa-chevron-down"></i> </span>
                         <a href="https://geoslam.com/academy/hardware/zeb-cam/" >ZEB-CAM</a>
                         
                         <ul class="submenu menu">
@@ -96,7 +96,7 @@ var h1 = `
             </li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <span class="toggle" id="survey-preparation"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/survey-preparation/" >Survey Preperation </a>
                 
                 <ul class="submenu menu">
@@ -112,14 +112,14 @@ var h1 = `
             </li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <span class="toggle" id="software"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/software/" >Software</a>  
                  
                  <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/software/geoslam-hub/">GeoSlam HUB</a>
                     <li class="page"><a href="https://geoslam.com/academy/software/geoslam-draw/">GeoSLAM DRAW</a></li>
                     <li class="page parent">
-                        <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>
+                        <span class="toggle" id="contextcapture"> <i class="fas fa-chevron-down"></i> </span>
                         <a href="https://geoslam.com/academy/software/contextcapture/">ContextCapture - for Reality Modelling</a>
                             
                         <ul class="submenu menu">
@@ -135,7 +135,7 @@ var h1 = `
             <li class="page"><a href="https://geoslam.com/academy/demo-datasets/" >Demo Datasets</a></li>
             
             <li class="page parent"> 
-                <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
+                <span class="toggle" id="issue-resolution"> <i class="fas fa-chevron-down"></i> </span>  
                 <a href="https://geoslam.com/academy/issue-resolution/" >Issue Resolution</a>
                 
                 <ul class="submenu menu">
