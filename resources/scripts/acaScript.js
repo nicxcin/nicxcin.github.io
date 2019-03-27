@@ -167,6 +167,7 @@ function create() {
 function geo_toggle_name(ele) {
     var dom = jQuery( "#" + ele );
 
+    console.log(dom);
     dom.children().toggleClass('fa-chevron-up');
     dom.children().toggleClass('fa-chevron-down');
 
