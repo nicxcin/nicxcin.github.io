@@ -77,7 +77,7 @@ var h1 = `
             
             <li class="page parent">
                 <span class="toggle"> <i class="fas fa-chevron-down"></i> </span>  
-                <a href="https://geoslam.com/academy/hardware/" >Hardware </a>
+                <a href="https://geoslam.com/academy/hardware/?open=" >Hardware </a>
                 
                 <ul class="submenu menu">
                     <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/" >REVO Standard </a></li>
@@ -157,6 +157,11 @@ function create() {
 	jQuery("body").append(h1);
 }
 
+function geo_toggle(ele) {
+    jQuery( ele ).children().toggleClass('fa-chevron-up');
+    jQuery( ele ).children().toggleClass('fa-chevron-down');
+    jQuery( ele ).next().next( ".submenu" ).slideToggle();
+}
 
 jQuery(function() {
     create();
@@ -164,9 +169,9 @@ jQuery(function() {
     jQuery( ".submenu" ).toggle();
     
     jQuery( ".toggle" ).click(function() {
-        console.log("Click");
-        jQuery( this ).children().toggleClass('fa-chevron-up');
-        jQuery( this ).children().toggleClass('fa-chevron-down');
-        jQuery( this ).next().next( ".submenu" ).slideToggle();
+        console.log(this);
+        geo_tottle(this);
     });
 });
+
+
