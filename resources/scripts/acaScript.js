@@ -165,7 +165,6 @@ function create() {
 
 function geo_toggle(ele) {
     console.log(ele);
-    console.log(ele.next().next(".submenu"));
     jQuery( ele ).children().toggleClass('fa-chevron-up');
     jQuery( ele ).children().toggleClass('fa-chevron-down');
     jQuery( ele ).next().next( ".submenu" ).slideToggle();
