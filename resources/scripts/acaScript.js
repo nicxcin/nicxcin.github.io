@@ -12,12 +12,13 @@ var h1 = `
         z-index: 1000;
         background-color: #ffffff;
         overflow: scroll;
+        max-height: 1vh;
     }
 
     #nav #title {
         font-size: 26px;
         font-weight: 300;
-            margin-top: 10px;
+        margin-top: 10px;
     }
 
     #nav .page {
