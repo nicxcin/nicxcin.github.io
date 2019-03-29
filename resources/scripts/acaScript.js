@@ -12,7 +12,7 @@ var h1 = `
         z-index: 1000;
         background-color: #ffffff;
         overflow-y: auto;
-        height: 100%;
+        height: 98%;
     }
 
     #nav #title {
