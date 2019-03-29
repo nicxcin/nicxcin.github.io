@@ -9,10 +9,14 @@ var h1 = `
         top: 30px;
         left: 0px;
         padding-left: 10px;
-        z-index: 1000;
+        z-index: 100;
         background-color: #ffffff;
         overflow-y: auto;
         height: 95%;
+    }
+
+    .x-colophon.bottom {
+        z-index: 101;
     }
 
     #nav #title {
