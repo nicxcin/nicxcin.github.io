@@ -12,7 +12,7 @@ var h1 = `
         z-index: 1000;
         background-color: #ffffff;
         overflow: scroll;
-        max-height: 1vh;
+        max-height: 100vh;
     }
 
     #nav #title {
