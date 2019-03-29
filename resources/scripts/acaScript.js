@@ -8,7 +8,7 @@ var h1 = `
         position: absolute;
         top: 30px;
         left: 0px;
-        margin-left: 10px;
+        padding-left: 10px;
         z-index: 1000;
         background-color: #ffffff;
     }
