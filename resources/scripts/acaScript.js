@@ -11,6 +11,7 @@ var h1 = `
         padding-left: 10px;
         z-index: 1000;
         background-color: #ffffff;
+        overflow: scroll;
     }
 
     #nav #title {
