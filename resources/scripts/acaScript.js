@@ -9,6 +9,7 @@ var h1 = `
         top: 30px;
         left: 10px;
         z-index: 1000;
+        background-color: #ffffff;
     }
 
     #nav #title {
