@@ -7,7 +7,8 @@ var h1 = `
     #nav {
         position: absolute;
         top: 30px;
-        left: 10px;
+        left: 0px;
+        margin-left: 10px;
         z-index: 1000;
         background-color: #ffffff;
     }
