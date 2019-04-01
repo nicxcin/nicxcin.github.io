@@ -11,7 +11,7 @@ var h1 = `
         z-index: 100;
         background-color: #ffffff;
         overflow-y: auto;
-        height: 100%;
+        height: 90%;
         position: fixed;
     }
 
