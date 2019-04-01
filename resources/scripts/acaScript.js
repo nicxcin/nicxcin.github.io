@@ -19,6 +19,10 @@ var h1 = `
         z-index: 101;
     }
 
+    .x-main.full {
+        min-height: calc(100vh - 130px);
+    }
+
     #nav #title {
         font-size: 26px;
         font-weight: 300;
