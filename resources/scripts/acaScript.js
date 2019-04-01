@@ -20,7 +20,7 @@ var h1 = `
     }
 
     .x-main.full {
-        min-height: calc(100vh - 130px);
+        min-height: calc(99.5vh - 130px);
     }
 
     #nav #title {
