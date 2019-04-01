@@ -11,10 +11,8 @@ var h1 = `
         z-index: 100;
         background-color: #ffffff;
         overflow-y: auto;
-//         height: 93%;
-        bottom: 120px;
+        bottom: 130px;
         position: fixed;
-        border: 1px dashed blue;
     }
 
     .x-colophon.bottom {
