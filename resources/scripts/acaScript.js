@@ -12,7 +12,7 @@ var h1 = `
         background-color: #ffffff;
         overflow-y: auto;
 //         height: 93%;
-        bottom: 110px;
+        bottom: 120px;
         position: fixed;
         border: 1px dashed blue;
     }
