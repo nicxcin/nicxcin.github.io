@@ -5,7 +5,6 @@ var h1 = `
 
 
     #nav {
-        position: absolute;
         top: 30px;
         left: 0px;
         padding-left: 10px;
@@ -13,6 +12,7 @@ var h1 = `
         background-color: #ffffff;
         overflow-y: auto;
         height: 100vh;
+        position: fixed;
     }
 
     .x-colophon.bottom {
