@@ -95,6 +95,7 @@ var h1 = `
                     <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-revo/?opena=hardware" >ZEB REVO </a></li>
                     <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-revo-rt/?opena=hardware" > ZEB REVO RT</a></li>
                     <li class="page"><a href="https://geoslam.com/academy/zeb-horizon/?opena=hardware" >ZEB HORIZON</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/zeb-pano/?opena=hardware" >ZEB PANO</a></li>
 
                     <li class="page parent">
                         <span class="toggle" id="zeb-cam"> <i class="fas fa-chevron-down"></i> </span>
