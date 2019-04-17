@@ -145,18 +145,6 @@ var h1 = `
             
             <li class="page"><a href="https://geoslam.com/academy/what-is-slam/" >What is SLAM?</a></li>
             <li class="page"><a href="https://geoslam.com/academy/demo-datasets/" >Demo Datasets</a></li>
-            
-            <li class="page parent"> 
-                <span class="toggle" id="issue-resolution"> <i class="fas fa-chevron-down"></i> </span>  
-                <a href="https://geoslam.com/academy/issue-resolution/?opena=issue-resolution" >Issue Resolution</a>
-                
-                <ul class="submenu menu">
-                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-change-the-time-on-the-zeb-revo-datalogger/?opena=issue-resolution">How to change the time on the ZEB-REVO Datalogger</a></li>
-                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-remove-and-replace-geoslam-draw-license-file/?opena=issue-resolution">How to remove and replace GeoSLAM Draw License file</a></li>
-                    <li class="page"><a href="https://geoslam.com/academy/issue-resolution/how-to-use-the-zeb-uploader-to-upload-and-flag-data-sets/?opena=issue-resolution">How to use the ZEB Uploader to upload and flag data sets</a></li>
-                </ul>
-            </li>
-            
             <li class="page"> 
                 <a href="https://geoslam.com/academy/contact-us/" >Contact Us </a>
             </li>
