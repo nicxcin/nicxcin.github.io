@@ -129,8 +129,8 @@ var h1 = `
                 <a href="https://geoslam.com/academy/software/?opena=software" >Software</a>  
                  
                  <ul class="submenu menu">
-                    <li class="page"><a href="https://geoslam.com/academy/software/geoslam-hub/?opena=software">GeoSlam HUB</a>
-                    <li class="page"><a href="https://geoslam.com/academy/software/geoslam-draw/?opena=software">GeoSLAM DRAW</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/software/hub/?opena=software">HUB</a>
+                    <li class="page"><a href="https://geoslam.com/academy/software/draw/?opena=software">DRAW</a></li>
                     <li class="page parent">
                         <span class="toggle" id="contextcapture"> <i class="fas fa-chevron-down"></i> </span>
                         <a href="https://geoslam.com/academy/software/contextcapture/?opena=contextcapture&openb=software">ContextCapture - for Reality Modelling</a>
