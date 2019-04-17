@@ -145,9 +145,7 @@ var h1 = `
             
             <li class="page"><a href="https://geoslam.com/academy/what-is-slam/" >What is SLAM?</a></li>
             <li class="page"><a href="https://geoslam.com/academy/demo-datasets/" >Demo Datasets</a></li>
-            <li class="page"> 
-                <a href="https://geoslam.com/academy/contact-us/" >Contact Us </a>
-            </li>
+            <li class="page"><a href="https://geoslam.com/academy/contact-us/" >Contact Us </a></li>
         </ul>
     </div>`
 
