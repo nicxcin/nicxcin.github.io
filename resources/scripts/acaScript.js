@@ -92,9 +92,9 @@ var h1 = `
                 <a href="https://geoslam.com/academy/hardware/?opena=hardware" >Hardware </a>
                 
                 <ul class="submenu menu">
-                    <li class="page"><a href="https://geoslam.com/academy/hardware/revo-standard-system/?opena=hardware" >REVO Standard </a></li>
-                    <li class="page"><a href="https://geoslam.com/academy/hardware/revo-real-time-system/?opena=hardware" >REVO Real-Time</a></li>
-                    <li class="page"><a href="https://geoslam.com/academy/zeb-horizon/?opena=hardware" >Zeb Horizon</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-revo/?opena=hardware" >ZEB REVO </a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/hardware/zeb-revo-rt/?opena=hardware" > ZEB REVO RT</a></li>
+                    <li class="page"><a href="https://geoslam.com/academy/zeb-horizon/?opena=hardware" >ZEB HORIZON</a></li>
 
                     <li class="page parent">
                         <span class="toggle" id="zeb-cam"> <i class="fas fa-chevron-down"></i> </span>
