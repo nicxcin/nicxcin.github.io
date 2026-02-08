@@ -98,7 +98,7 @@ function init() {
 		}
 
 		// Call Photon API
-
+		console.log(query)
 
 		fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lat=50.833376&lon=5.663634&layer=house`)
 			.then(response => response.json())
