@@ -1,8 +1,8 @@
-import { Pkg_Modal } from './js/modal/Pkg_Modal.js';
-import { Ride_Modal } from './js/modal/Ride_Modal.js';	
-import { Leaflet_Map } from './js/Leaflet_Map.js';	
-import { DB } from './js/DB.js';	
-import { Ui } from './js/Ui.js';
+import { Pkg_Modal } from '/js/modal/Pkg_Modal.js';
+import { Ride_Modal } from '/js/modal/Ride_Modal.js';	
+import { Leaflet_Map } from '/js/Leaflet_Map.js';	
+import { DB } from '/js/DB.js';	
+import { Ui } from '/js/Ui.js';
 import { Router } from './js/Router.js';
 
 
