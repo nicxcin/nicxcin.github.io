@@ -35,9 +35,14 @@ function _show(ride_id, package_id) {
 		}
 
 		bootstrap.Modal.getInstance(document.getElementById('del_pkg_modal')).hide();
-		document.querySelector('.modal-backdrop').remove();
+
 		DB.delete_package(ride_id, package_id)
 		
+	});
+
+	modal.addEventListener('hidden.bs.modal', function (event) {
+		console.log('Modal is fully closed. Now I can refresh the map!');
+		document.querySelector('.modal-backdrop').remove();
 	});
 }
 
