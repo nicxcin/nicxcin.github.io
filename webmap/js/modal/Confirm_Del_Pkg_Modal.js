@@ -35,7 +35,7 @@ function _show(ride_id, package_id) {
 
 async function _inject_modal() {
 	try {
-		const response = await fetch('/html/modal/confirm_del_pkg_modal.html');
+		const response = await fetch('/webmap/html/modal/confirm_del_pkg_modal.html');
 		const html = await response.text();
 		
 		// Inject at the end of the body

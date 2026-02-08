@@ -192,7 +192,7 @@ function renderResults(features) {
 
 async function inject_modal() {
 	try {
-		const response = await fetch('/html/modal/pkg_modal.html');
+		const response = await fetch('/webmap/html/modal/pkg_modal.html');
 		const html = await response.text();
 		
 		// Inject at the end of the body
