@@ -1,4 +1,4 @@
-import { Pkg_Modal } from './js/modal/Pkg_Modal.js';
+import { Pkg_Modal } from 'webmap/js/modal/Pkg_Modal.js';
 import { Ride_Modal } from './js/modal/Ride_Modal.js';	
 import { Leaflet_Map } from './js/Leaflet_Map.js';	
 import { DB } from './js/DB.js';	
