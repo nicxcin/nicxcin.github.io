@@ -35,7 +35,7 @@ function _show(ride_id, package_id) {
 		}
 
 		bootstrap.Modal.getInstance(document.getElementById('del_pkg_modal')).hide();
-		querySelector('.modal-backdrop').remove();
+		document.querySelector('.modal-backdrop').remove();
 		DB.delete_package(ride_id, package_id)
 		
 	});
