@@ -1,5 +1,5 @@
-import { DB } from '../DB.js';	
-import { Router } from '../Router.js';
+import { DB } from '/webmap/js/DB.js';	
+import { Router } from '/webmap/js/Router.js';
 
 export const Ride_Modal = {
 	hide: function() {

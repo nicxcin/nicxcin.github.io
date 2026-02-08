@@ -1,6 +1,6 @@
-import { Confirm_Del_Pkg_Modal } from './modal/Confirm_Del_Pkg_Modal.js';	
-import { Router } from './Router.js';
-import { DB } from './DB.js';
+import { Confirm_Del_Pkg_Modal } from '/webmap/js/modal/Confirm_Del_Pkg_Modal.js';	
+import { Router } from '/webmap/js/Router.js';
+import { DB } from '/webmap/js/DB.js';
 
 await Confirm_Del_Pkg_Modal.load()
 document.addEventListener('package_deleted', (event) => {

@@ -1,4 +1,4 @@
-import { DB } from '../DB.js';
+import { DB } from '/webmap/js/DB.js';
 
 
 export const Confirm_Del_Pkg_Modal = {

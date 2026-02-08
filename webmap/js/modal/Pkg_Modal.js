@@ -1,6 +1,6 @@
-import { DB } from '../DB.js';	
-import { Leaflet_Map } from '../Leaflet_Map.js';	
-import { Router } from '../Router.js';
+import { DB } from '/webmap/js/DB.js';	
+import { Leaflet_Map } from '/webmap/js/Leaflet_Map.js';	
+import { Router } from '/webmap/js/Router.js';
 
 export const Pkg_Modal = {
 	hide: function() {
