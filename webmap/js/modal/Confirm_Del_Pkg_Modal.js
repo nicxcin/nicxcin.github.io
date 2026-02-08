@@ -22,6 +22,7 @@ export const Confirm_Del_Pkg_Modal = {
 function _show(ride_id, package_id) {
 
 	const modal = new bootstrap.Modal(document.getElementById('del_pkg_modal'));
+	modal.show();
 
 	document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
 
@@ -34,10 +35,10 @@ function _show(ride_id, package_id) {
 		}
 
 		bootstrap.Modal.getInstance(document.getElementById('del_pkg_modal')).hide();
+		document.getElementById('modal-backdrop').remove();
 		DB.delete_package(ride_id, package_id)
 		
 	});
-	modal.show();
 }
 
 
