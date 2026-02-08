@@ -25,6 +25,14 @@ function _show(ride_id, package_id) {
 
 	document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
 
+		const modalElement = document.getElementById('del_pkg_modal');
+		const modalInstance = bootstrap.Modal.getInstance(modalElement);
+		
+		if (modalInstance) {
+			console.log("Hising Del Pkg Modal")
+			modalInstance.hide();
+		}
+
 		bootstrap.Modal.getInstance(document.getElementById('del_pkg_modal')).hide();
 		DB.delete_package(ride_id, package_id)
 		
