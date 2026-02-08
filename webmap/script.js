@@ -1,9 +1,9 @@
-import { Pkg_Modal } from 'webmap/js/modal/Pkg_Modal.js';
-import { Ride_Modal } from 'webmap/js/modal/Ride_Modal.js';	
-import { Leaflet_Map } from 'webmap/js/Leaflet_Map.js';	
-import { DB } from 'webmap/js/DB.js';	
-import { Ui } from 'webmap/js/Ui.js';
-import { Router } from './js/Router.js';
+import { Pkg_Modal } from '/webmap/js/modal/Pkg_Modal.js';
+import { Ride_Modal } from '/webmap/js/modal/Ride_Modal.js';	
+import { Leaflet_Map } from '/webmap/js/Leaflet_Map.js';	
+import { DB } from '/webmap/js/DB.js';	
+import { Ui } from '/webmap/js/Ui.js';
+import { Router } from '/webmap/js/Router.js';
 
 
 const mapTab = document.querySelector('#map-tab');
