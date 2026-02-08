@@ -1,0 +1,75 @@
+<div class="modal fade" id="add_pkg_modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="modalTitle">Add Package</h5>
+		<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	  </div>
+		<div class="modal-body" id="modalBody">
+
+			<form id="addPkgForm">
+				<div class="search-container position-relative mb-3">
+				  <div class="input-group">
+					<input type="text" id="addressInput" class="form-control" placeholder="Search Address..." autocomplete="off">
+				  </div>
+				  <ul id="resultsList" class="list-group position-absolute w-100 shadow-sm" style="z-index: 1000; display: none;"></ul>
+				</div>
+
+
+				
+
+				<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+				  <input type="checkbox" class="btn-check" id="koelkast-btn" autocomplete="off">
+				  <label class="btn btn-outline-primary" for="koelkast-btn">Koelkast</label>
+				</div>
+
+				<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+				  <input type="checkbox" class="btn-check" id="boven-btn" autocomplete="off">
+				  <label class="btn btn-outline-primary" for="boven-btn">Boven</label>
+				</div>
+
+				<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+				  <input type="checkbox" class="btn-check" id="ophalen-btn" autocomplete="off">
+				  <label class="btn btn-outline-primary" for="ophalen-btn">Ophalen</label>
+				</div>
+
+
+				<br><br>
+
+				<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btnradio1">Before</label>
+
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btnradio2">After</label>
+
+					<input type="text" class="form-control" placeholder="17:00" aria-label="17:00" aria-describedby="btnGroupAddon">
+					<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+					<label class="btn btn-outline-primary" for="btnradio3">X</label>
+				</div>
+
+				<br><br>
+
+				<div class="input-group">
+				  <textarea class="form-control" aria-label="With textarea"  placeholder="Extra Notes"></textarea>
+				</div>
+
+				<br>
+
+				<div class="input-group d-grid gap-2">
+				  <button type="submit" class="btn btn-primary" id="pkg_submit_btn" disabled>Submit</button>
+				 </div> 
+
+
+
+				 <input type="text" id="data_housenumber" hidden>
+				 <input type="text" id="data_street" hidden>
+				 <input type="text" id="data_country" hidden>
+				 <input type="text" id="data_lat" hidden>
+				 <input type="text" id="data_lon" hidden>
+				 <input type="text" id="postcode" hidden>
+			</form>
+		</div>
+	</div>
+  </div>
+</div>

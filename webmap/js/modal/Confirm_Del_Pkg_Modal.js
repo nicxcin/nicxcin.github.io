@@ -1,0 +1,48 @@
+import { DB } from '../DB.js';
+
+
+export const Confirm_Del_Pkg_Modal = {
+	load: async function() {
+		return _inject_modal().then(() => {
+			// init();
+		});
+	},
+	bindTrigger: function(element, ride_id, pkg_id) {
+
+		if (!element) return;
+		
+		element.addEventListener('click', () => {
+			_show(ride_id, pkg_id)
+		});
+	}
+};
+
+
+
+function _show(ride_id, package_id) {
+
+	const modal = new bootstrap.Modal(document.getElementById('del_pkg_modal'));
+
+	document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+
+		bootstrap.Modal.getInstance(document.getElementById('del_pkg_modal')).hide();
+		DB.delete_package(ride_id, package_id)
+		
+	});
+	modal.show();
+}
+
+
+async function _inject_modal() {
+	try {
+		const response = await fetch('/html/modal/confirm_del_pkg_modal.html');
+		const html = await response.text();
+		
+		// Inject at the end of the body
+		document.body.insertAdjacentHTML('beforeend', html);
+		
+
+	} catch (err) {
+		console.error('Error loading modal:', err);
+	}
+}

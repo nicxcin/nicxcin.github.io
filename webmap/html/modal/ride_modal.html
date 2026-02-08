@@ -1,0 +1,30 @@
+<div class="modal fade" id="create_ride_modal" tabindex="-1" aria-labelledby="rideModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="rideModalLabel">New Ride</h5>
+	  </div>
+	  <div class="modal-body">
+		<form id="rideForm">
+		  <div class="mb-3">
+			<label for="riderName" class="form-label">Ride Name</label>
+			<input type="text" class="form-control" id="rideName" placeholder="Date" required>
+		  </div>
+
+		  <div class="mb-3">
+			<label for="shiftType" class="form-label">Shift Type</label>
+			<select class="form-select" id="shiftType" required>
+			  <option value="" selected disabled>Choose a shift...</option>
+			  <option value="EIJ">Eijsden</option>
+			  <option value="GEL">Geleen</option>
+			  <option value="MFF">MF & Fronten</option>
+			</select>
+		  </div>
+		</form>
+	  </div>
+	  <div class="modal-footer">
+		<button type="submit" form="rideForm" class="btn btn-primary">Save Ride</button>
+	  </div>
+	</div>
+  </div>
+</div>
