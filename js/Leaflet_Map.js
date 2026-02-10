@@ -1,6 +1,6 @@
-import { Ui } from '/webmap/js/Ui.js';	
-import { DB } from '/webmap/js/DB.js';	
-import { Router } from '/webmap/js/Router.js';
+import { Ui } from '/js/Ui.js';	
+import { DB } from '/js/DB.js';	
+import { Router } from '/js/Router.js';
 
 
 export const Leaflet_Map = {

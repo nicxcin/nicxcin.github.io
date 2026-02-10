@@ -1,5 +1,5 @@
-import { DB } from '/webmap/js/DB.js';	
-import { Router } from '/webmap/js/Router.js';
+import { DB } from '/js/DB.js';	
+import { Router } from '/js/Router.js';
 
 export const Ride_Modal = {
 	hide: function() {
@@ -34,7 +34,7 @@ function getDate() {
 
 async function inject_modal() {
 	try {
-		const response = await fetch('/webmap/html/modal/ride_modal.html', {cache: 'no-store' });
+		const response = await fetch('/html/modal/ride_modal.html', {cache: 'no-store' });
 		const html = await response.text();
 		
 		// Inject at the end of the body

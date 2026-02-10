@@ -1,6 +1,6 @@
-import { DB } from '/webmap/js/DB.js';	
-import { Leaflet_Map } from '/webmap/js/Leaflet_Map.js';	
-import { Router } from '/webmap/js/Router.js';
+import { DB } from '/js/DB.js';	
+import { Leaflet_Map } from '/js/Leaflet_Map.js';	
+import { Router } from '/js/Router.js';
 
 export const Pkg_Modal = {
 	hide: function() {
@@ -196,7 +196,7 @@ function renderResults(features) {
 
 async function inject_modal() {
 	try {
-		const response = await fetch('/webmap/html/modal/pkg_modal.html');
+		const response = await fetch('/html/modal/pkg_modal.html');
 		const html = await response.text();
 		
 		// Inject at the end of the body
