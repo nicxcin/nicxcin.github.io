@@ -62,7 +62,7 @@ function init() {
 
 		
 
-		const ride = DB.new_ride(rideName, shiftType, city)	
+		const ride = DB.new_ride(rideName, shiftType, shiftCity)	
 
 		
 		Router.set_ride(ride.id)
