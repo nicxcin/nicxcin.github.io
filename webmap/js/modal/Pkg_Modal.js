@@ -95,7 +95,7 @@ function init() {
 		const ride_id = Router.get_ride_id()
 		let ride = DB.load_ride(ride_id)
 
-		console.log(ride)
+		console.log(ride['city'])
 
 		if (query.length < 3) {
 			resultsList.style.display = 'none';
