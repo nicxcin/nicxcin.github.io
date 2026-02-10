@@ -90,12 +90,11 @@ function init() {
 	const resultsList = document.getElementById('resultsList');
 
 	addressInput.addEventListener('input', function() {
-		const query = this.value + " " + "geleen";
-
 		const ride_id = Router.get_ride_id()
 		let ride = DB.load_ride(ride_id)
 
-		console.log(ride['city'])
+		const query = this.value + " " + ride['city'];
+
 
 		if (query.length < 3) {
 			resultsList.style.display = 'none';
