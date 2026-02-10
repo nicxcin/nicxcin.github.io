@@ -34,7 +34,7 @@ function getDate() {
 
 async function inject_modal() {
 	try {
-		const response = await fetch('/webmap/html/modal/ride_modal.html');
+		const response = await fetch('/webmap/html/modal/ride_modal.html'{cache: 'no-store' });
 		const html = await response.text();
 		
 		// Inject at the end of the body
