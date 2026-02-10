@@ -57,7 +57,7 @@ function init() {
 
 		const rideName =  document.getElementById('rideName').value;
 		const shiftType = document.getElementById('shiftType').value;
-		const shiftCity = document.getElementById('shiftCity').value;
+		const shiftCity = document.getElementById('rideCity').value;
 
 
 		
