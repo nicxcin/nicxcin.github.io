@@ -57,11 +57,12 @@ function init() {
 
 		const rideName =  document.getElementById('rideName').value;
 		const shiftType = document.getElementById('shiftType').value;
+		const shiftCity = document.getElementById('shiftCity').value;
 
 
 		
 
-		const ride = DB.new_ride(rideName, shiftType)	
+		const ride = DB.new_ride(rideName, shiftType, city)	
 
 		
 		Router.set_ride(ride.id)

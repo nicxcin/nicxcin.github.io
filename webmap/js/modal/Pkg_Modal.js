@@ -90,7 +90,7 @@ function init() {
 	const resultsList = document.getElementById('resultsList');
 
 	addressInput.addEventListener('input', function() {
-		const query = this.value + " " + "maastricht";
+		const query = this.value + " " + "geleen";
 
 		if (query.length < 3) {
 			resultsList.style.display = 'none';

@@ -4,11 +4,12 @@ const STORAGE_KEY = 'ride_';
 
 
 export const DB = {
-	new_ride: function(name, shift) {
+	new_ride: function(name, shift, city) {
 		const new_ride = {
 			id: 'ride_' + Date.now().toString(),
 			name: name,
 			shift: shift,
+			city: city,
 			packages: {},
 		};
 		_save_ride(new_ride)
