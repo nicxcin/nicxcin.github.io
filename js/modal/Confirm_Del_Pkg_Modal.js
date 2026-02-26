@@ -22,7 +22,7 @@ export const Confirm_Del_Pkg_Modal = {
 function _show(ride_id, package_id) {
 
 	const modal = new bootstrap.Modal(document.getElementById('del_pkg_modal'));
-	
+	modal.show();
 
 	document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
 
@@ -40,12 +40,11 @@ function _show(ride_id, package_id) {
 		
 	});
 
-	modal.addEventListener('hidden.bs.modal', function (event) {
+	document.getElementById('del_pkg_modal').addEventListener('hidden.bs.modal', function (event) {
 		console.log('Modal is fully closed. Now I can refresh the map!');
 		document.querySelector('.modal-backdrop').remove();
 	});
-
-	modal.show();
+	
 }
 
 
