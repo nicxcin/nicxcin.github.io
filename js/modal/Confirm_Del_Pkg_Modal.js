@@ -4,10 +4,12 @@ import { DB } from '/js/DB.js';
 export const Confirm_Del_Pkg_Modal = {
 	load: async function() {
 		return _inject_modal().then(() => {
-			// init();
+			element.addEventListener('click', () => {
+				_show()
+			});
 		});
 	},
-	bindTrigger: function(element, ride_id, pkg_id) {
+	bindTrigger: function(element) {
 
 		if (!element) return;
 		
@@ -26,7 +28,7 @@ export const Confirm_Del_Pkg_Modal = {
 };
 
 
-function _show(ride_id, package_id) {
+function _show() {
 
 	const modal = new bootstrap.Modal(document.getElementById('del_pkg_modal'));
 	modal.show();
@@ -64,7 +66,6 @@ async function _inject_modal() {
 		
 		// Inject at the end of the body
 		document.body.insertAdjacentHTML('beforeend', html);
-		this.bindTrigger(document.getElementById('btnDelete'))
 		
 
 	} catch (err) {
