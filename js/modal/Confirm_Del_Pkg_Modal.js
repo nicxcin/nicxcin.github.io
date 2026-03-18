@@ -4,7 +4,9 @@ import { DB } from '/js/DB.js';
 export const Confirm_Del_Pkg_Modal = {
 	load: async function() {
 		return _inject_modal().then(() => {
-			element.addEventListener('click', () => {
+
+			// init functions
+			document.getElementById('btnDelete').addEventListener('click', () => {
 				_show()
 			});
 		});
@@ -66,6 +68,7 @@ async function _inject_modal() {
 		
 		// Inject at the end of the body
 		document.body.insertAdjacentHTML('beforeend', html);
+		this.bindTrigger(document.getElementById('btnDelete'))
 		
 
 	} catch (err) {
