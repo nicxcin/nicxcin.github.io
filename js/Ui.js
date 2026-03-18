@@ -38,6 +38,10 @@ export const Ui = {
 	render_package_list: function(ride) {
 		_render_packages_list(ride)
 	},
+
+	init: function() {
+
+	}
 };
 
 
@@ -110,7 +114,7 @@ function _show_pkg_info_bar(package_id) {
 
 
 
-		Confirm_Del_Pkg_Modal.bindTrigger(document.getElementById('btnDelete'), ride_id, pkg.id)
+		// Confirm_Del_Pkg_Modal.bindTrigger(document.getElementById('btnDelete'), ride_id, pkg.id)
 		Confirm_Del_Pkg_Modal.set_target(ride_id, pkg.id)
 
 	} else {
