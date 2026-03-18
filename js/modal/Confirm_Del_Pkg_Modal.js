@@ -40,10 +40,12 @@ function _show(ride_id, package_id) {
 		
 	});
 
-	document.getElementById('del_pkg_modal')._element.addEventListener('hidden.bs.modal', function (event) {
-		console.log('Modal is fully closed. Now I can refresh the map!');
-		document.querySelector('.modal-backdrop').remove();
-	});
+	console.log(document.getElementById('del_pkg_modal'))
+
+	// document.getElementById('del_pkg_modal')._element.addEventListener('hidden.bs.modal', function (event) {
+	// 	console.log('Modal is fully closed. Now I can refresh the map!');
+	// 	document.querySelector('.modal-backdrop').remove();
+	// });
 	
 }
 
