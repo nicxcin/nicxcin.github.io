@@ -68,7 +68,6 @@ async function _inject_modal() {
 		
 		// Inject at the end of the body
 		document.body.insertAdjacentHTML('beforeend', html);
-		this.bindTrigger(document.getElementById('btnDelete'))
 		
 
 	} catch (err) {
