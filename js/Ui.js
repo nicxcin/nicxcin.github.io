@@ -108,7 +108,11 @@ function _show_pkg_info_bar(package_id) {
 		document.getElementById('displayExtraInfo').innerHTML = pkg.notes;
 
 
+
+
 		Confirm_Del_Pkg_Modal.bindTrigger(document.getElementById('btnDelete'), ride_id, pkg.id)
+		Confirm_Del_Pkg_Modal.setTarget(ride_id, pkg.id)
+
 	} else {
 		Router.set_map_pkg("")
 	}
