@@ -112,7 +112,12 @@ function _show_pkg_info_bar(package_id) {
 		document.getElementById('displayExtraInfo').innerHTML = pkg.notes;
 
 
+		let mapsBtn = document.getElementById('btnMaps')
+		console.log(mapsBtn)
 
+		let string_address = "window.open('https://www.google.com/maps/search/?api=1&query="  + encodeURIComponent(address) + "')"
+
+		mapsBtn.setAttribute('onclick', string_address, '_blank');
 
 		// Confirm_Del_Pkg_Modal.bindTrigger(document.getElementById('btnDelete'), ride_id, pkg.id)
 		Confirm_Del_Pkg_Modal.set_target(ride_id, pkg.id)
