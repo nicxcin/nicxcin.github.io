@@ -16,7 +16,18 @@ mapTab.addEventListener('shown.bs.tab', function () {
   // but a trigger might be needed for older versions.
 });
 
+ document.addEventListener("DOMContentLoaded", function() {
+  const hasSeenPopup = localStorage.getItem("hasSeenPopup");
 
+  if (!hasSeenPopup) {
+    document.getElementById("popup").style.display = "block";
+  }
+});
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  localStorage.setItem("hasSeenPopup", "true");
+}
 
 
 Leaflet_Map.load()
