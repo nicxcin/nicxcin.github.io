@@ -32,9 +32,10 @@ onLoad()
 
 function onLoad() {
 
-	 const hasSeenPopup = localStorage.getItem("hasSeenPopup");
+	const hasSeenPopup = localStorage.getItem("hasSeenPopup");
 
 	if (!hasSeenPopup) {
+		console.log('Popup?')
 		document.getElementById("popup").style.display = "block";
 	}
 
