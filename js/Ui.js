@@ -133,6 +133,4 @@ function _hide_pkg_info_bar() {
 }
 
 
-function closePopup() {
-	document.getElementById('popup').style.display = 'none';
-}
+

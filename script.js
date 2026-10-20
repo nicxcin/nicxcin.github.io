@@ -16,10 +16,7 @@ mapTab.addEventListener('shown.bs.tab', function () {
   // but a trigger might be needed for older versions.
 });
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  localStorage.setItem("hasSeenPopup", "true");
-}
+
 
 
 Leaflet_Map.load()
@@ -28,6 +25,10 @@ await Ride_Modal.load()
 onLoad()
 
 
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+  localStorage.setItem("hasSeenPopup", "true");
+}
 
 
 function onLoad() {
