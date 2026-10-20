@@ -114,7 +114,6 @@ function init() {
 			const query = search_query + " " + ride['city'];
 
 			
-
 			console.log('searching for: ' + query)
 
 			fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lat=50.833376&lon=5.663634&layer=house`)
