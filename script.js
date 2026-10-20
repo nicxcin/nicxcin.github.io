@@ -26,8 +26,9 @@ onLoad()
 
 
 function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  localStorage.setItem("hasSeenPopup", "true");
+	console.log('hehre')
+  	document.getElementById("popup").style.display = "none";
+  	localStorage.setItem("hasSeenPopup", "true");
 }
 
 
