@@ -31,6 +31,11 @@ function closePopup() {
 }
 
 
+
+document.getElementById('closePopupBtn').addEventListener('click', function() {
+    closePopup()
+});
+
 function onLoad() {
 
 	const hasSeenPopup = localStorage.getItem("hasSeenPopup");
