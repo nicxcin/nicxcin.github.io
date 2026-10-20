@@ -1,0 +1,14 @@
+name: Page Built
+
+on:
+  page_build:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Local Computer
+        if: always()
+        run: |
+          curl -X POST https://YOUR-TRYCLOUDFLARE-URL.trycloudflare.com \
+            -H "Content-Type: application/json" \
+            -d '{"status": "${{ job.status }}", "repo": "${{ github.repository }}"}'
