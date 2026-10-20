@@ -90,12 +90,17 @@ function init() {
 	const resultsList = document.getElementById('resultsList');
 
 
-	let timeout;
+	const timeout = new Array(2);
+	let timeout_id=0
 
 	addressInput.addEventListener('input', function() {
-		clearTimeout(timeout);
+		clearTimeout(timeout[0]);
 		
-		timeout = setTimeout(() => {
+		timeout[0] = setTimeout(() => {
+			timeout[1] = timeout_id
+			timeout_id += 1
+
+
 			const ride_id = Router.get_ride_id()
 			let ride = DB.load_ride(ride_id)
 
