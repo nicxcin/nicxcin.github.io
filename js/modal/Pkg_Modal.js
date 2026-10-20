@@ -99,12 +99,16 @@ function init() {
 			const ride_id = Router.get_ride_id()
 			let ride = DB.load_ride(ride_id)
 
-			const query = this.value + " " + ride['city'];
+			let search_query = this.value
 
-			if (query.length < 3) {
+			if (search_query < 3) {
 				resultsList.style.display = 'none';
 				return;
 			}
+
+			const query = search_query + " " + ride['city'];
+
+			
 
 			console.log('searching for: ' + query)
 
