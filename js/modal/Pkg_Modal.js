@@ -101,7 +101,7 @@ function init() {
 
 			let search_query = this.value
 
-			if (search_query < 3) {
+			if (search_query.length < 3) {
 				resultsList.style.display = 'none';
 				return;
 			}
