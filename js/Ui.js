@@ -132,3 +132,7 @@ function _hide_pkg_info_bar() {
 	document.getElementById('packageInfoBar').classList.add('d-none');
 }
 
+
+function closePopup() {
+	document.getElementById('popup').style.display = 'none';
+}
