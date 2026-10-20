@@ -37,7 +37,15 @@ document.getElementById('closePopupBtn').addEventListener('click', function() {
     closePopup()
 });
 
-function onLoad() {
+	function onLoad() {
+
+
+		fetch('version.txt')
+		.then(response => response.text())
+		.then(version => {
+			console.log(version);
+			document.getElementById('version').innerHTML = 'v' + version
+	});
 
 	const hasSeenPopup = localStorage.getItem("hasSeenPopup");
 
