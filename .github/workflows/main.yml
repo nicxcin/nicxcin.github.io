@@ -9,6 +9,6 @@ jobs:
       - name: Notify Local Computer
         if: always()
         run: |
-          curl -X POST https://YOUR-TRYCLOUDFLARE-URL.trycloudflare.com \
+          curl -X POST https://xml-isbn-composite-avi.trycloudflare.com \
             -H "Content-Type: application/json" \
             -d '{"status": "${{ job.status }}", "repo": "${{ github.repository }}"}'
