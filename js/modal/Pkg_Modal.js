@@ -89,27 +89,56 @@ function init() {
 	const addressInput = document.getElementById('addressInput');
 	const resultsList = document.getElementById('resultsList');
 
+
+	let timeout;
+
 	addressInput.addEventListener('input', function() {
-		const ride_id = Router.get_ride_id()
-		let ride = DB.load_ride(ride_id)
+		clearTimeout(timeout);
+		
+		timeout = setTimeout(() => {
+			const ride_id = Router.get_ride_id()
+			let ride = DB.load_ride(ride_id)
 
-		const query = this.value + " " + ride['city'];
+			const query = this.value + " " + ride['city'];
+
+			if (query.length < 3) {
+				resultsList.style.display = 'none';
+				return;
+			}
+
+			console.log('searching for: ' + query)
+
+			fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lat=50.833376&lon=5.663634&layer=house`)
+				.then(response => response.json())
+					.then(data => {
+						console.log(data.features)
+						renderResults(data.features);
+					});
+		}, 300);
+	});
+
+	// addressInput.addEventListener('input', function() {
+	// 	const ride_id = Router.get_ride_id()
+	// 	let ride = DB.load_ride(ride_id)
+
+	// 	const query = this.value + " " + ride['city'];
 
 
-		if (query.length < 3) {
-			resultsList.style.display = 'none';
-			return;
-		}
+	// 	if (query.length < 3) {
+	// 		resultsList.style.display = 'none';
+	// 		return;
+	// 	}
 
-		// Call Photon API
-		console.log(query)
+	// 	// Call Photon API
+	// 	console.log('searching for: ' + query)
 
-		fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lat=50.833376&lon=5.663634&layer=house`)
-			.then(response => response.json())
-				.then(data => {
-					renderResults(data.features);
-				});
-		});
+	// 	fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lat=50.833376&lon=5.663634&layer=house`)
+	// 		.then(response => response.json())
+	// 			.then(data => {
+	// 				console.log(data.features)
+	// 				renderResults(data.features);
+	// 			});
+	// });
 }
 
 
