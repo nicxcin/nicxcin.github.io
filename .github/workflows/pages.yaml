@@ -1,6 +1,11 @@
-- name: Notify Local Computer
-        if: always()
-        run: |
-          curl -X POST https://xml-isbn-composite-avi.trycloudflare.com \
-               -H "Content-Type: application/json" \
-               -d '{"status": "${{ job.status }}", "repo": "${{ github.repository }}"}'
+	
+
+name: Notify Local Computer
+run-name: ${{ github.actor }} is testing out GitHub Actions 
+on: [push]
+jobs:
+	steps:
+        	- run: |
+          		curl -X POST https://xml-isbn-composite-avi.trycloudflare.com \
+               		-H "Content-Type: application/json" \
+               		-d '{"status": "${{ job.status }}", "repo": "${{ github.repository }}"}'
