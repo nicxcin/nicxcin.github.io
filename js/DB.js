@@ -26,9 +26,29 @@ export const DB = {
 	},
 	get_pkg(ride_id, pkg_id) {
 		return this.load_ride(ride_id).packages[pkg_id]
-		
+	},
+	select_pkg(ride_id, pkg_id) {
+		_select_pkg(ride_id, pkg_id)
 	}
 };
+
+
+function _select_pkg(ride_id, pkg_id) {
+
+	const ride = _load_ride(ride_id)
+
+	console.log(ride)
+
+	for (const key in ride.packages) {
+		ride.packages[key].selected = false
+	}
+
+	ride.packages[pkg_id].selected = true
+	ride.packages[pkg_id].highlighted = false
+
+	_save_ride(ride)
+}
+
 
 function _delete_package(ride_id, package_id) {
 	const ride = _load_ride(ride_id)
@@ -53,12 +73,19 @@ function _new_package(ride_id, pkg_data) {
 
 	let ride = _load_ride(ride_id)
 
+	for (const key in ride.packages) {
+		ride.packages[key].highlighted = false
+	}
+
 	const pkg_id = pkg_data.street.toLowerCase() + pkg_data.housenumber
 	pkg_data['id'] = pkg_id
 
-	if (ride) {
-		ride.packages[pkg_id] = pkg_data
-	}
+
+
+
+	ride.packages[pkg_id] = pkg_data
+	ride.packages[pkg_id].highlighted = true
+	ride.packages[pkg_id].selected = false
 
 	_save_ride(ride)
 }

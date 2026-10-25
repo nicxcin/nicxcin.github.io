@@ -22,14 +22,30 @@ pkg_markers.addTo(map);
 
 var userIcon = L.divIcon({
 	html: '<span style="font-size: 24px;">🧿</span>',
-	className: 'custom-div-icon', // Use this to remove default Leaflet styling
+	className: 'custom-div-icon', 
 	iconSize: [30, 30],
 	iconAnchor: [15, 30],
 });
 
 var pkgIcon = L.divIcon({
-	html: '<span class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle" style="width: 33px; height: 33px; font-size: 24px;">📦</span>',
-	className: 'custom-div-icon', // Use this to remove default Leaflet styling
+	html: '<span class="d-inline-flex align-items-center justify-content-center bg-white border border-primary border-3 rounded-circle" style="width: 33px; height: 33px; font-size: 20px;">📦</span>',
+	className: 'custom-div-icon', 
+	iconSize: [30, 30],
+	iconAnchor: [15, 30],
+});
+
+
+var pkgIconSelected = L.divIcon({
+	html: '<span class="d-inline-flex align-items-center justify-content-center bg-primary border border-primary border-3 rounded-circle" style="width: 33px; height: 33px; font-size: 20px;">📦</span>',
+	className: 'custom-div-icon', 
+	iconSize: [30, 30],
+	iconAnchor: [15, 30],
+});
+
+
+var pkgIconHighlighted = L.divIcon({
+	html: '<span class="d-inline-flex align-items-center justify-content-center bg-white border border-danger border-3 rounded-circle" style="width: 33px; height: 33px; font-size: 20px;">📦</span>',
+	className: 'custom-div-icon', 
 	iconSize: [30, 30],
 	iconAnchor: [15, 30],
 });
@@ -37,7 +53,7 @@ var pkgIcon = L.divIcon({
 
 var apoIcon = L.divIcon({
 	html: '<span class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle" style="width: 33px; height: 33px; font-size: 24px;">🏥</span>',
-	className: 'custom-div-icon', // Use this to remove default Leaflet styling
+	className: 'custom-div-icon', 
 	iconSize: [30, 30],
 	iconAnchor: [15, 30],
 });
@@ -81,11 +97,6 @@ function _load() {
 	pkg_markers.on('click', function(e) {
 		// 'e.layer' is the specific marker that was clicked
 		const pkg_data = e.layer.options; 
-		
-		
-		
-		// Call your custom function
-		// handleMarkerSelection(data.id);
 
 		markerClicked(pkg_data)
 	});
@@ -164,15 +175,18 @@ function centerUser() {
 
 function markerClicked(pkg_marker) {
 
-	map.setView([pkg_marker.lat, pkg_marker.lon]);
+	map.setView([pkg_marker.lat, pkg_marker.lon], 15);
 	Ui.show_pkg_info_bar(pkg_marker.id);
 	Router.set_map_pkg(pkg_marker.id);
+
+
+	DB.select_pkg(Router.get_ride_id(), pkg_marker.id)
 }
 
 
-function addPackagesMarker(pkg) {
+function addPackagesMarker(pkg, icon) {
 	
-	L.marker([pkg.lat, pkg.lon], {...{icon: pkgIcon}, ...pkg}).addTo(pkg_markers);
+	L.marker([pkg.lat, pkg.lon], {...{icon: icon}, ...pkg}).addTo(pkg_markers);
 }
 
 
@@ -184,8 +198,67 @@ function _render_pkg_markers(ride) {
 
 	_clear_pkg_markers()
 
-	Object.entries(ride.packages).forEach(([key, value]) => {
-		addPackagesMarker(value);
-	});
+	// Object.entries(ride.packages).forEach(([key, value]) => {
+	// 	addPackagesMarker(value);
+	// });
 
+	const packages = Object.entries(ride.packages);
+
+	for (let i = 0; i < packages.length; i++) {
+		const pkg = packages[i][1];
+
+		let icon_to_use = pkgIcon
+		if(pkg.highlighted) {icon_to_use = pkgIconHighlighted;console.log('What')}
+		if(pkg.selected) {icon_to_use = pkgIconSelected}
+
+		addPackagesMarker(pkg, icon_to_use);
+	}
+
+	// addPackagesMarker(packages[packages.length - 1][1], pkgIconSelected);
+
+	// console.log(packages[packages.length - 1][1])
+
+}
+
+
+// Create a separate layer group for postcode boundary shapes so you can clear them easily
+const postcode_boundaries = L.featureGroup().addTo(map);
+
+async function drawPostcodeBoundary(postalCode, countryCode = 'nl') {
+    // Clear previous postcode drawings if desired
+    postcode_boundaries.clearLayers();
+
+    // Nominatim structured search endpoint with GeoJSON polygon formatting enabled
+    const url = `https://nominatim.openstreetmap.org/search?format=json&postalcode=${encodeURIComponent(postalCode)}&countrycodes=${countryCode}&polygon_geojson=1`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Look for a result that contains geojson polygon/multipolygon data
+        const match = data.find(item => item.geojson && (item.geojson.type === 'Polygon' || item.geojson.type === 'MultiPolygon'));
+
+        if (match) {
+            // Use Leaflet's L.geoJSON layer to render the boundary shape onto the map
+            const geoJsonLayer = L.geoJSON(match.geojson, {
+                style: {
+                    color: '#ff7800',      // Outline color
+                    weight: 3,         // Outline thickness
+                    fillColor: '#ff7800',  // Inside fill color
+                    fillOpacity: 0.2   // Transparency of the fill
+                }
+            });
+
+            // Add it to your boundary feature group and zoom the map to fit it
+            geoJsonLayer.addTo(postcode_boundaries);
+            map.fitBounds(geoJsonLayer.getBounds());
+
+            console.log(`Successfully drew boundary for postcode: ${postalCode}`);
+        } else {
+            console.error(`No polygon boundary found for postcode: ${postalCode}`);
+            alert(`Could not find a map boundary for postcode ${postalCode}`);
+        }
+    } catch (error) {
+        console.error("Error fetching postcode boundary:", error);
+    }
 }

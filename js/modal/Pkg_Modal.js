@@ -168,7 +168,7 @@ function _select_location(street, housenumber, country, lat, lon, postcode) {
 	
 
 	const addressInput = document.getElementById('addressInput');
-	addressInput.value = street + " " + housenumber + " " + country
+	addressInput.value = street + " " + housenumber + " " + postcode + " " + country
 
 	const resultsList = document.getElementById('resultsList');
 	resultsList.innerHTML = "";
